@@ -2,23 +2,22 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
   <title>reveal.js</title>
 
-  <link rel="stylesheet" href="dist/reset.css">
-  <link rel="stylesheet" href="dist/reveal.css">
-  <link rel="stylesheet" href="dist/theme/dracula.css">
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <link rel="stylesheet" href="dist/theme/black.css" />
 
   <!-- Theme used for syntax highlighted code -->
-  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
 </head>
 
 <body>
   <div class="reveal">
     <div class="slides">
-
       <!-- TITLE -->
 
       <section>
@@ -27,12 +26,13 @@
           <p>How precise language eliminates bugs</p>
 
           <aside class="notes">
-            In South Africa, we dont say “hello”, we say “haazit boet”, and I think it’s beautiful.
-
-            This talk is called saying what you mean, and I hope that by the end of it, you will think about
-            language in a new way, and that you will see programming as an extension of that, and that you
-            will have learned a few techniques that allow you to manipulate how you express yourself in code
-            to write better software.
+            In South Africa, we dont say “hello”, we say “haazit boet”, and I
+            think it’s beautiful. This talk is called saying what you mean,
+            and I hope that by the end of it, you will think about language in
+            a new way, and that you will see programming as an extension of
+            that, and that you will have learned a few techniques that allow
+            you to manipulate how you express yourself in code to write better
+            software.
           </aside>
         </section>
 
@@ -40,27 +40,41 @@
           <h2>About me</h2>
           <p>👋🏻 Phlippie Bosman</p>
           <p>🫰🏻 <a href="https://retrorabbit.co.za">Retro Rabbit</a></p>
-          <p>🧑🏻‍💻 github.com/<a href="https://github.com/phlippieb">phlippieb</a></p>
-          <p>🐻 <a href="https://phlippieb.bearblog.dev">phlippieb</a>.bearblog.dev</p>
+          <p>
+            🧑🏻‍💻 github.com/<a href="https://github.com/phlippieb">phlippieb</a>
+          </p>
+          <p>
+            🐻
+            <a href="https://phlippieb.bearblog.dev">phlippieb</a>.bearblog.dev
+          </p>
 
           <aside class="notes">
-            My name is Phlippie. That is my real name. I will not elaborate any further. For money, I work
-            as a mobile developer at a cosy little software consultancy called Retro Rabbit. I have some
-            stuff on Git Hub, and I blog sometimes and put it on bearblog, which is a super lightweight
-            blogging platform built by a South African dev called Herman Martinus; check it out!
+            My name is Phlippie. That is my real name. I will not elaborate
+            any further. For money, I work as a mobile developer at a cosy
+            little software consultancy called Retro Rabbit. I have some stuff
+            on Git Hub, and I blog sometimes and put it on bearblog, which is
+            a super lightweight blogging platform built by a South African dev
+            called Herman Martinus; check it out!
           </aside>
         </section>
 
         <section>
           <h2>These slides</h2>
           <p>Made with <a href="https://revealjs.com/">reveal js</a></p>
-          <p>View at TODO</p>
-          <p>Source at TODO</p>
+          <p>
+            View at
+            <a href="https://phlippieb.github.io/saying-what-you-mean">phlippieb.github.io/saying-what-you-mean</a>
+          </p>
+          <p>
+            Source at
+            <a href="https://github.com/phlippieb/saying-what-you-mean">github.com/phlippieb/saying-what-you-mean</a>
+          </p>
 
           <aside class="notes">
-            I used to be an assistant lecturer and students’ first question was always “can we get the
-            slides” so let’s get that out of the way first. For the curious, these slides were made in
-            reveal.js. You can view them at this URL, and the source is on github.
+            I used to be an assistant lecturer and students’ first question
+            was always “can we get the slides” so let’s get that out of the
+            way first. For the curious, these slides were made in reveal.js.
+            You can view them at this URL, and the source is on github.
           </aside>
         </section>
 
@@ -74,7 +88,8 @@
           </ol>
 
           <aside class="notes">
-            Here’s a quick overview of the main points we’ll hit today. (Just briefly ready them out)
+            Here’s a quick overview of the main points we’ll hit today. (Just
+            briefly ready them out)
           </aside>
         </section>
       </section>
@@ -82,47 +97,174 @@
       <!-- 1. BACKGROUND -->
 
       <section data-background="#262227">
-        <section>
-          <h2>1. Background</h2>
-          <p><i>On language</i></p>
-          <aside class="notes"></aside>
-        </section>
+        <h2>1. Background</h2>
+        <p><i>On language</i></p>
 
-        <section>
-          <h3>Language and technology</h3>
-          <aside class="notes"></aside>
-        </section>
+        <aside class="notes">
+          It’s pretty interesting that, as software people, our main tool for
+          doing our jobs is <i>language</i>. I mean yes, we use programming
+          languages, but they are languages nonetheless. So let’s talk about
+          language for a bit.
+        </aside>
+      </section>
 
+      <section>
+        <h3>Language and technology</h3>
+        TODO
+
+        <aside class="notes"></aside>
+      </section>
+
+      <section>
+        <h3>Language and mind</h3>
         <section>
-          <h3>Language and mind</h3>
-          <p class="fragment">Linguistic relativity (Sapir-Whorf): the structure of a language influences its speakers'
-            worldview or cognition, and thus individuals' languages determine or influence their perceptions of the
-            world (?)</p>
+          <p class="fragment">
+            Linguistic relativity (Sapir-Whorf): the structure of a language
+            influences its speakers' worldview or cognition, and thus
+            individuals' languages determine or influence their perceptions
+            of the world (?)
+          </p>
 
           <aside class="notes">
-            Any fans here of Denis Villeneuve's sci-fi movie Arrival?
-            Without spoiling anything, the movie goes into the concept of linguistic relativity, and even mentions by
-            name the Sapir and Whorf, two researchers to whom the idea is often attributed.
+            Any fans in the audience of Denis Villeneuve's sci-fi movie
+            Arrival? Without spoiling anything, the movie goes into a
+            concept called "linguistic relativity", and even mentions by
+            name Sapir and Whorf, the two researchers to whom the idea is
+            often attributed. The hypothesis is basically that the language
+            that you speak and understand to some degree determines or
+            influences your thoughts and your worldview. It's quite an
+            intuitive idea if you think about it, and there are lots of
+            interesting real-world examples that seem to support it.
+          </aside>
+        </section>
 
-            The hypothesis is bnasically that the language that you speak and understand, whether to a lesser or
-            stronger degree, determines or influences your thoughts and worldview.
+        <section>
+          <ul>
+            <li>Pronoun drop: collectivist cultures [1]</li>
+            <li>Absolute cardinal directions: improved orientation [2]</li>
+            <li>
+              Non-agentive language for accidents: less likely to remember
+              who caused accidents [2]
+            </li>
+          </ul>
 
-            This is quite a popular idea among people
+          <p>
+            [1]
+            <a
+              href="https://courses.lumenlearning.com/waymaker-psychology/chapter/reading-language-and-thought">courses.lumenlearning.com/waymaker-psychology/chapter/reading-language-and-thought</a>
+          </p>
+          <p>
+            [2]
+            <a
+              href=" https://www.scientificamerican.com/article/how-language-shapes-thought/">www.scientificamerican.com/article/how-language-shapes-thought</a>
+          </p>
+
+          <aside class="notes">
+            <ul>
+              <li>
+                Some languages (e.g. Japanese) allow you to drop pronouns;
+                instead of saying "I went there", you can just say "went
+                there". There seems to be a link between these languages
+                where we mention ourselves less frequently, and a more
+                collectivist, community-oriented culture.
+              </li>
+              <li>
+                Guugu Yimithirr (language in North Queensland, Australia)
+                doesn't have relative directions (like left, right), only
+                absolute directions (like north, south). Speakers of these
+                languages tend to always know where north is, even when
+                they're inside. This is not a skill most others have!
+              </li>
+              <li>
+                Researchers designed an experiment where speakers of
+                English, Japanese and Spanish watched videos of people
+                breaking things, either by accident or on purpose. Unlike
+                English, Japanese and Spanish doesn't use agentive language
+                for accidents - instead of saying "john broke the vase",
+                they will say "the vase broke". After watching the videos,
+                speakers of these languages were equally likely to remember
+                who broke something <i>on purpose</i>, but less likely to
+                remember who broke something <i>accidentally</i>.
+              </li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <ul>
+            <li>Time as a resource or a cycle [1]</li>
+            <li>Colors - red vs pink; blue vs light blue [1]</li>
+            <li>Newspeak, 1984</li>
+          </ul>
+
+          <p>
+            [1]
+            <a
+              href="https://www.linguisticsociety.org/content/does-language-i-speak-influence-way-i-think">www.linguisticsociety.org/content/does-language-i-speak-influence-way-i-think</a>
+          </p>
+          <aside class="notes">
+            <ul>
+              <li>
+                In English, time is "stuff" (two days, three hours). We
+                think of it as something that can be saved, wasted, lost,
+                spent. In Hopi (Native American language) it is seen as a
+                cycle. Can you imagine how this might change your outlook?
+              </li>
+              <li>
+                Even the colour-ignorant among us tend to think of pink as
+                its own colour, distinct from red. Is it because it has a
+                different name? Russian has different names for darker and
+                lighter shades of blue.
+              </li>
+              <li>
+                The idea is also central to the fictional language
+                "Newspeak" imposed by the totalitarian government in George
+                Orwell's novel 1984. The idea is that, by making the
+                populace speak a language without words for rebellion and
+                uprising, they won't be able to think about those concepts.
+              </li>
+            </ul>
           </aside>
         </section>
 
         <section>
           <p>Wittgenstein:</p>
-          <blockquote>The limits of my language mean the
-            limits of my world</blockquote>
-        </section>
-        <section>
+          <blockquote>
+            The limits of my language mean the limits of my world
+          </blockquote>
           <p>Kravchenko:</p>
-          <blockquote>An existing impasse in the study of this relationship […] between language and mind […] cannot be
-            overcome as long as the problem itself is not reformulated to rid it of the intrinsically dualistic
-            assumption that there is, in fact, a phenomenon called ‘language’ that is ontologically independent of the
-            phenomenon called ‘mind.’ […] mind cannot be understood without and outside of language.</blockquote>
+          <blockquote class="r-fit-text">
+            An existing impasse in the study of this relationship […]
+            between language and mind […] cannot be overcome as long as the
+            problem itself is not reformulated to rid it of the
+            intrinsically dualistic assumption that there is, in fact, a
+            phenomenon called ‘language’ that is ontologically independent
+            of the phenomenon called ‘mind.’ […] mind cannot be understood
+            without and outside of language.
+          </blockquote>
         </section>
+
+        <section>
+          Disclaimer: Linguistic determinism probably not real
+
+          <aside class="notes">
+            Please note that the strong version of the Sapir Whorf
+            hypothesis, aka linguistic determinish, which is that language
+            <b>determines</b> thoughts, is pretty much universally rejected
+            by linguists; not having a word for something does not restrict
+            us from thinking about it. As an example, have you ever said "I
+            can't explain how I'm feeling"? However, a looser form of the
+            hypothesis really seems to resonate with most people, and be
+            supported by empirical evidence. Having or learning a word for a
+            concept does seem to help us integrate it into our thinking, and
+            more efficiently communicate about that concept with others. We
+            might argue that the people in 1984 would still be able to think
+            about rebellion, but would have a much harder time organising a
+            coup among one another without having the necessary language to
+            communicate about it.
+          </aside>
+        </section>
+      </section>
       </section>
 
       <!-- 2. OPINION: PRECISE LANGUAGE -->
@@ -130,16 +272,33 @@
       <section>
         <h2>2. An opinion</h2>
         <p>
-          Writing clearly (in code) is a professional responsibility, not an optional soft skill.
+          Writing clearly (in code) is a professional responsibility, not an
+          optional soft skill.
         </p>
         <p class="fragment">
-          Moreover, the process of refining messy code into something clear and readable is about more than
-          just writing style; it’s about sorting out your own mental model of the code, organising your
-          thoughts, mastering the subject matter, and then putting it down clearly, so that others can benefit
-          from your mental efforts.
+          Moreover, the process of refining messy code into something clear
+          and readable is about more than just writing style; it’s about
+          sorting out your own mental model of the code, organising your
+          thoughts, mastering the subject matter, and then putting it down
+          clearly, so that others can benefit from your mental efforts.
         </p>
 
-        <aside class="notes"></aside>
+        <aside class="notes">
+          So having hopefully convinced you that languge is more than just a necessary evil — more than just some
+          background medium through which we must wade — I hope I can get you onboard with this opinion that I have.
+          <br>
+          Our job is language. We spend our working days "saying" things, through the act of programming and
+          refactoring. And I strongly believe that it doesn't just matter what we say, but that how we say it is vitally
+          important.
+          <br>
+          So as professionals who get paid a fair amount of money, I believe we ought to hold each other accountable for
+          mastering the art of language, and writing clearly.
+          <br>
+          But I want to go deeper and say that it's not just about putting something down in a file that won't make
+          others developers hate you when they read it. We've talked about the link between language and mind, and I
+          believe that spending the extra effort to find the right way to write a piece of code is about figuring out,
+          internally, in your mind, what the code is really trying to say.
+        </aside>
       </section>
       </section>
 
@@ -157,10 +316,7 @@
       <section>
         <h2>4. A concept</h2>
         <p>Making invalid state unrepresentable</p>
-        <aside class="notes">
-          Just like a language might lack a word for something, our code might be made to lack the ability to
-          express something. We can use this to our advantage to make certain bad things impossible to write.
-        </aside>
+
         <ol type="a" class="fragment">
           <li>Maybe, Optional, Nullable</li>
           <li>Tagged types</li>
@@ -168,7 +324,23 @@
           <li>Closed sets, discriminated unions</li>
         </ol>
 
-        <aside class="notes"></aside>
+        <aside class="notes">
+          Ok, so far this stuff has been a bit airy-fairy-soft-sciency, and this talk pretty much amounts to "write
+          clean code". So
+          let's make it more interesting and talk about a specific way in which we can use the nuances of language to
+          our advantage. I'd like to tell you about a concept called "making invalid state unrepresentable".
+          <br>
+          Just like how a natural language might lack a word for something, our code might be written in such a way that
+          it
+          lacks the ability to express something. We can use this to our advantage to make certain bad things impossible
+          to write.
+          <br>
+          The basic concept is: if it is an error (or a bug) for a program to be in a certain state, then you can
+          program it to make it impossible to even represent that state. That way, the error literally cannot occur.
+          <br>
+          This is a little hard to understand in the abstract, so let’s look at some concrete examples. We're going to
+          talk about 4 strategies or concepts:
+        </aside>
       </section>
 
       <!-- ... Maybe, Optional, Nullable -->
@@ -176,8 +348,29 @@
       <section>
         <section>
           <h3>a. Maybe, Optional, Nullable</h3>
+          <p class="fragment">Invalid state: <tt>NullPointerException</tt></p>
+          TODO - show and develop a fully-fledged code sample
 
-          <aside class="notes"></aside>
+          <aside class="notes">
+            Ok, so we mentioned “invalid state”. What kind of invalid state are we talking about? An easy example,
+            especially if you’ve ever worked in Java or C++, is: unexpected null values. Some of you might get some mild
+            PTSD when hearing the phrase “NullPointerException”.
+            <br>
+            One way to phrase the problem is that, in languages like Java and C++ and even Go (sorry Go fanboys), for
+            many
+            types, a value can either be present or it can be null. Now most of the time, we don’t actually want those
+            values to be null when we use them. I mean this in the sense that we don’t usually assign a special, valid
+            meaning to the case where a value is null. Null is often simply an invalid state. Yes, you write your checks
+            for it, so if your program is relatively well-written, you shouldn’t see runtime exceptions. But what if we
+            could make that invalid state unrepresentable instead, so that writing a check doesn’t even make sense?
+            <br>
+            We can! But we need to reach for monads.
+          </aside>
+
+        </section>
+
+        <section>
+
         </section>
       </section>
     </div>
@@ -195,7 +388,7 @@
       hash: true,
 
       // Learn about plugins: https://revealjs.com/plugins/
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
     });
   </script>
 </body>
