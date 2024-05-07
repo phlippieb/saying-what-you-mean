@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/dracula.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- TITLE -->
+
+      <section>
+        <section>
+          <h1>Saying what you mean</h1>
+          <p>How precise language eliminates bugs</p>
+
+          <aside class="notes">
+            In South Africa, we dont say “hello”, we say “haazit boet”, and I think it’s beautiful.
+
+            This talk is called saying what you mean, and I hope that by the end of it, you will think about
+            language in a new way, and that you will see programming as an extension of that, and that you
+            will have learned a few techniques that allow you to manipulate how you express yourself in code
+            to write better software.
+          </aside>
+        </section>
+
+        <section>
+          <h2>About me</h2>
+          <p>👋🏻 Phlippie Bosman</p>
+          <p>🫰🏻 <a href="https://retrorabbit.co.za">Retro Rabbit</a></p>
+          <p>🧑🏻‍💻 github.com/<a href="https://github.com/phlippieb">phlippieb</a></p>
+          <p>🐻 <a href="https://phlippieb.bearblog.dev">phlippieb</a>.bearblog.dev</p>
+
+          <aside class="notes">
+            My name is Phlippie. That is my real name. I will not elaborate any further. For money, I work
+            as a mobile developer at a cosy little software consultancy called Retro Rabbit. I have some
+            stuff on Git Hub, and I blog sometimes and put it on bearblog, which is a super lightweight
+            blogging platform built by a South African dev called Herman Martinus; check it out!
+          </aside>
+        </section>
+
+        <section>
+          <h2>These slides</h2>
+          <p>Made with <a href="https://revealjs.com/">reveal js</a></p>
+          <p>View at TODO</p>
+          <p>Source at TODO</p>
+
+          <aside class="notes">
+            I used to be an assistant lecturer and students’ first question was always “can we get the
+            slides” so let’s get that out of the way first. For the curious, these slides were made in
+            reveal.js. You can view them at this URL, and the source is on github.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Overview</h2>
+          <ol>
+            <li>Background: on language</li>
+            <li>An opinion</li>
+            <li>A tweet</li>
+            <li>A concept</li>
+          </ol>
+
+          <aside class="notes">
+            Here’s a quick overview of the main points we’ll hit today. (Just briefly ready them out)
+          </aside>
+        </section>
+      </section>
+
+      <!-- 1. BACKGROUND -->
+
+      <section data-background="#262227">
+        <section>
+          <h2>1. Background</h2>
+          <p><i>On language</i></p>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h3>Language and technology</h3>
+          <aside class="notes"></aside>
+        </section>
+
+        <section>
+          <h3>Language and mind</h3>
+          <p class="fragment">Linguistic relativity (Sapir-Whorf): the structure of a language influences its speakers'
+            worldview or cognition, and thus individuals' languages determine or influence their perceptions of the
+            world (?)</p>
+
+          <aside class="notes">
+            Any fans here of Denis Villeneuve's sci-fi movie Arrival?
+            Without spoiling anything, the movie goes into the concept of linguistic relativity, and even mentions by
+            name the Sapir and Whorf, two researchers to whom the idea is often attributed.
+
+            The hypothesis is bnasically that the language that you speak and understand, whether to a lesser or
+            stronger degree, determines or influences your thoughts and worldview.
+
+            This is quite a popular idea among people
+          </aside>
+        </section>
+
+        <section>
+          <p>Wittgenstein:</p>
+          <blockquote>The limits of my language mean the
+            limits of my world</blockquote>
+        </section>
+        <section>
+          <p>Kravchenko:</p>
+          <blockquote>An existing impasse in the study of this relationship […] between language and mind […] cannot be
+            overcome as long as the problem itself is not reformulated to rid it of the intrinsically dualistic
+            assumption that there is, in fact, a phenomenon called ‘language’ that is ontologically independent of the
+            phenomenon called ‘mind.’ […] mind cannot be understood without and outside of language.</blockquote>
+        </section>
+      </section>
+
+      <!-- 2. OPINION: PRECISE LANGUAGE -->
+
+      <section>
+        <h2>2. An opinion</h2>
+        <p>
+          Writing clearly (in code) is a professional responsibility, not an optional soft skill.
+        </p>
+        <p class="fragment">
+          Moreover, the process of refining messy code into something clear and readable is about more than
+          just writing style; it’s about sorting out your own mental model of the code, organising your
+          thoughts, mastering the subject matter, and then putting it down clearly, so that others can benefit
+          from your mental efforts.
+        </p>
+
+        <aside class="notes"></aside>
+      </section>
+      </section>
+
+      <!-- 3. A TWEET -->
+
+      <section data-background="#262227">
+        <h2>3. A (controversial) tweet</h2>
+        TODO
+
+        <aside class="notes"></aside>
+      </section>
+
+      <!-- 4. A CONCEPT -->
+
+      <section>
+        <h2>4. A concept</h2>
+        <p>Making invalid state unrepresentable</p>
+        <aside class="notes">
+          Just like a language might lack a word for something, our code might be made to lack the ability to
+          express something. We can use this to our advantage to make certain bad things impossible to write.
+        </aside>
+        <ol type="a" class="fragment">
+          <li>Maybe, Optional, Nullable</li>
+          <li>Tagged types</li>
+          <li>NonZero, NonEmpty</li>
+          <li>Closed sets, discriminated unions</li>
+        </ol>
+
+        <aside class="notes"></aside>
+      </section>
+
+      <!-- ... Maybe, Optional, Nullable -->
+
+      <section>
+        <section>
+          <h3>a. Maybe, Optional, Nullable</h3>
+
+          <aside class="notes"></aside>
+        </section>
+      </section>
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>
