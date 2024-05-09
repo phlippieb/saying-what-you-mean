@@ -883,7 +883,195 @@ average(of: NonEmpty(head: 1, tail: [2, 3, 4]))
             </aside>
           </section>
 
-          <section>asdf</section>
+          <section data-auto-animate>
+            <pre
+              data-id="sets-1"
+            ><code class="jshl swift" data-line-numbers>struct MyDate {
+  let day: Int
+  let weekday: Int // 0 = Monday
+  let month: Int // 0 = January
+}
+            </code></pre>
+            <aside class="notes">
+              Ok here's an easy one. Let's look at all some issues here.
+              <br />
+              <ul>
+                <li>
+                  First off, just because it says in the comments that 0 =
+                  Monday, nothing's stopping us from putting a value of 10 or
+                  100 or 10,000,000 there, right?
+                </li>
+                <li>
+                  But moreover, even if we're well-intended, we might
+                  accidentally get confused about which day of the week is first
+                  — it might start on a Monday or on a Sunday depending on where
+                  you live or just what you're used to, so people can easily get
+                  this wrong.
+                </li>
+              </ul>
+              This one is pretty easy to fix though, using enums.
+            </aside>
+          </section>
+
+          <section data-auto-animate>
+            <pre
+              data-id="sets-1"
+            ><code class="jshl swift" data-line-numbers="1-7|11,12|15">enum Weekday {
+              case monday, tuesday, wednesday, // etc...
+            }
+
+            enum Month {
+              case january, february, march, // etc...
+            }
+
+              struct MyDate {
+  let day: Int
+  let weekday: Weekday
+  let month: Month
+}
+
+MyDate(day: 1, weekday: .monday, month: .march)
+            </code></pre>
+            <aside class="notes">
+              Now we still don't have a nice and ergonomic way to deal with
+              dates that only go to 31 for some months and 30 or 28 or 29 for
+              others, but... we'll leave that problem alone for this talk.
+              <br />
+              Enums are quite powerful for this type of thing, because they give
+              us the power to define a set of values that only contain exactly
+              the values that we consider to be valid. In terms of algebra,
+              they're essentially like closed sets.
+            </aside>
+          </section>
+
+          <section>
+            <p>"And" types / Products</p>
+            <pre><code>
+            class C {
+            let x: Int
+            let y: String
+            }
+            </code></pre>
+
+            <aside class="notes">
+              Speaking of algebra, here's an interesting concept. Certain types,
+              like classes and structs, are "and" types.<br />
+              And instance of this class contains an Int AND a String.
+              <br />
+              In terms of algebraic types, they are products: the total set of
+              all values that C can have is every Int multiplied by every
+              String.
+              <br />
+              So... what are "or" types?
+            </aside>
+          </section>
+
+          <section>
+            <p>"Or" types / Sums</p>
+            <pre><code>
+              enum E {
+              case x(Int)
+              case y(String)
+              }
+
+              let eg1 = E.x(2)
+              let eg2 = E.y("Hello")
+            </code></pre>
+            <aside class="notes">
+              In algebraic type theory, you also get "or" types. They are not
+              supported in all programming languages, but you do get them in a
+              few.
+              <br />
+              Unlike structs and classes, an "or" type lets you choose which of
+              its members to store in an instance. Here, the total possible
+              values that you can represent with enum E is every Int "or" every
+              String. In other words, Int + String.
+            </aside>
+          </section>
+
+          <section data-auto-animate>
+            <p>Use the correct operand</p>
+            <pre data-id="sets-result"><code>struct Result {
+              let success: String?
+              let failure: Error?
+            }
+
+              func request() -> Result {
+              // We can do any of these:
+              return Result(success: "Hi", failure: nil)
+              return Result(success: nil, failure: .badRequest)
+              // But also these
+              return Result(success: "Hi", failure: .badRequest)
+              return Result(success: nil, failure: nil)
+              }
+            </code></pre>
+            <aside class="notes">
+              Now that we have the terminology for two different type operands,
+              name product and sum, we can think about using the correct ones to
+              describe our software. Here's a simple request function that can
+              succeed with a String payload, or fail with an error.
+              <br />
+              If you don't know Swift, you might not realise but the optional
+              String and optional Error are both "or" types, or sum types.
+              success can either be a String OR nil. And failure can either be
+              an error OR nil.
+              <br />
+              However, the containing type here is a struct, which means it's an
+              "and" or product type. Result can contain not just a non-nil
+              success and a nil failure, or a non-nil failure and a nil success,
+              but also both a success and failure, as well as neither! Some of
+              those just don't make sense, so perhaps result should have been an
+              "or" type instead?
+            </aside>
+          </section>
+
+          <section data-auto-animate>
+            <p>Use the correct operand</p>
+            <pre data-id="sets-result"><code>enum Result {
+              case success(String)
+              case failure(Error)
+            }
+
+              func request() -> Result {
+            // Now, we can only do these:
+          return .success("Hi")
+        return .failure(.badRequest)
+              }
+            </code></pre>
+            <aside class="notes">
+              We changed it to an enum, which is an "or" or "sum" type. Now, our
+              result can only be in one of two states - it can only contain a
+              success string, or a failure error, but not both, and not neither.
+              In fact, Swift has a built-in type that is implemented like this,
+              because this is actually correct.
+            </aside>
+          </section>
+
+          <section>
+            <p>"Or" types in some languages</p>
+            <ul>
+              <li>Swift: enums with associated types</li>
+              <li>Kotlin: sealed classes</li>
+              <li>Rust: enums with fields (?)</li>
+              <li>F#: discriminated unions</li>
+              <li>Haskell: algebraic data types</li>
+            </ul>
+          </section>
+          <aside class="notes">
+            Once you understand it and get used to it, it seems like such a
+            fundamental feature that it's quite baffling that it's not
+            universally supported by all languages.
+            <br />
+            Here are some languages that I believe support this concept in some
+            shape or form. It's much more common in functional languages, as you
+            might imagine, because the notion of algebraic types is more math-y
+            than Java-y.
+            <br />
+            So unfortunately, depending on your job, this might not be available
+            to you. But hopefully it helps you to know that this concept exists;
+            it might still influence your thoughts around code and software
+            design!
+          </aside>
         </section>
       </div>
     </div>
