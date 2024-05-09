@@ -346,35 +346,351 @@
       <!-- ... Maybe, Optional, Nullable -->
 
       <section>
-        <section>
+        <section data-auto-animate>
           <h3>a. Maybe, Optional, Nullable</h3>
-          <p class="fragment">Invalid state: <tt>NullPointerException</tt></p>
-          TODO - show and develop a fully-fledged code sample
+          <pre data-id="code-1" class="fragment"><code class="hljs java" data-trim data-line-numbers>
+              public class MyClass {
+              &nbsp;static String getValue() {
+              &nbsp;&nbsp;return "Hello world!";
+              &nbsp;}
+
+              &nbsp;public static void main(String args[]) {
+              &nbsp;&nbsp;String value = getValue();
+              &nbsp;&nbsp;System.out.println(value.toUpperCase());
+              &nbsp;&nbsp;// Hello world!
+              &nbsp;}
+              }
+            </code></pre>
 
           <aside class="notes">
-            Ok, so we mentioned “invalid state”. What kind of invalid state are we talking about? An easy example,
-            especially if you’ve ever worked in Java or C++, is: unexpected null values. Some of you might get some mild
-            PTSD when hearing the phrase “NullPointerException”.
+            Ok, so we mentioned “invalid state”. What kind of invalid state are we talking about? Let's look at a simple
+            example, especially if you've ever worked in Java or C++. Here's some innocent Java code...
+
+
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="code-1"><code class="hljs java" data-trim data-line-numbers="3,9">
+              public class MyClass {
+              &nbsp;static String getValue() {
+              &nbsp;&nbsp;return null;
+              &nbsp;}
+
+              &nbsp;public static void main(String args[]) {
+              &nbsp;&nbsp;String value = getValue();
+              &nbsp;&nbsp;System.out.println(value.toUpperCase());
+              &nbsp;&nbsp;// Exception in thread "main" java.lang.NullPointerException
+              &nbsp;}
+              }
+            </code></pre>
+
+          <aside class="notes">
+            If we just change the content of our function to return null, we get this error that might give you some
+            mild PTSD: “NullPointerException”. The interesting thing here is that, from a syntax point of view, Java
+            says it's totally allowed and correct to return null from a function that says on the tin it will return a
+            string.
             <br>
-            One way to phrase the problem is that, in languages like Java and C++ and even Go (sorry Go fanboys), for
-            many
-            types, a value can either be present or it can be null. Now most of the time, we don’t actually want those
+            One way to look at the problem is that, in languages like Java and C++ and even Go (sorry Go fanboys), for
+            many types, a value can either be present or it can be null. A lot of the time, we don’t actually want those
             values to be null when we use them. I mean this in the sense that we don’t usually assign a special, valid
             meaning to the case where a value is null. Null is often simply an invalid state. Yes, you write your checks
-            for it, so if your program is relatively well-written, you shouldn’t see runtime exceptions. But what if we
-            could make that invalid state unrepresentable instead, so that writing a check doesn’t even make sense?
+            for it, so if your program is relatively well-written, you shouldn’t see runtime exceptions. But let's look
+            beyond the semantic level: Can we make that invalid state unrepresentable at the type level
+            instead, so that writing
+            a check doesn’t for null even make sense?
             <br>
-            We can! But we need to reach for monads.
+            We can! But not necessarily in Java. I said this was an easy example, not a good one.
           </aside>
+        </section>
 
+        <section data-auto-animate>
+          <h3>The Maybe monad</h3>
+          <p>(Understanding monads: <a href="https://www.youtube.com/watch?v=C2w45qRc3aU">
+              https://youtu.be/C2w45qRc3aU</a>)</p>
+
+          <aside class="notes">
+            Many modern languages provide some version of the Maybe monad. I’m not going to try and explain what a
+            monad
+            is (but it’s actually not so complicated, and here is a link to video that explains is very well). We’ll
+            just talk about “maybe”.
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="code-2"><code class="hljs swift" data-line-numbers="1-5|7-12|14-15">
+              enum Maybe&lt;T> {
+              &nbsp;case some(T)
+              &nbsp;case none
+              }
+
+              func foo(value: Maybe&lt;String>) {
+              &nbsp;switch value {
+              &nbsp;case .some(let someValue): print(someValue.uppercased)
+              &nbsp;case .none: print("nil")
+              &nbsp;}
+              }
+
+              foo(value: .some("hello world"))
+              foo(value: .none)
+            </code></pre>
+
+          <aside class="notes">
+            Maybe is a special wrapper type for other types. When a value, for example an int, is wrapped in a Maybe, an
+            instance of that Maybe can either be an instance of that value (an int) or it can be null.
+            <br>
+            Here, we see how a Maybe might be implemented in a language like Swift. It's a simple "either" wrapper type
+            — an instance of a maybe will either contain a wrapped value of T, or it will contain nothing, or none.
+            <br>
+            Using it, if a function considers null to be a valid case, it can accept an instance of a Maybe as an
+            argument. It can then switch over the received value to either unwrap the wrapped value, if it exists, or
+            handle null.
+            <br>
+            We can call this function with either a wrapped value, or with null.
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="code-2"><code class="hljs swift" data-line-numbers="7|8-10|13-15">
+              enum Maybe&lt;T> {
+              &nbsp;case some(T)
+              &nbsp;case none
+              }
+
+              func foo(value: String) {
+              &nbsp;// No null-handling needed;
+              &nbsp;// value is guaranteed to exist
+              &nbsp;print(someValue.uppercased)
+              }
+
+              foo(value: "hello world")
+              // foo(value: .none) ⬅︎ not even valid Swift syntax
+            </code></pre>
+
+          <aside class="notes">
+            Now, let's change our function to accept a normal Int, so no longer a maybe.
+            <br>
+            In the body of the function, we no longer need to handle the null case. Since the argument is not a maybe,
+            we are guaranteed by the type system and the compiler that the value will not be null!
+            <br>
+            At the callsite, we can now only call the function with a non-null value. Trying to pass null is simply not
+            valid Swift syntax and it won't compile.
+            <br>
+            So firstly, this means that the invalid state (null) literally cannot be represented - it is invalid code
+            and will throw a compile error. And secondly, when we *do* want null to represent a special case, we have to
+            make it explicit, meaning that other developers reading the code can see that something can be intentionally
+            made null.
+          </aside>
         </section>
 
         <section>
+          <ul>
+            <li>Swift: Optional (let x: Int? = 2)</li>
+            <li>Kotlin: Nullable (val x: Int? = 2)</li>
+            <li>Dart: Nullable (int? x = 2)</li>
+            <li>C#: Nullable (int? x = 2)</li>
+            <li>Rust: Option (let x: Option&lt;u32> = Some(2))</li>
+          </ul>
 
+          <aside class="notes">
+            This functionality is actually built into Swift, and maybe types are called "optional". Other major
+            languages that support this concept are Kotlin, Dart, C#, Rust, and probably most functional languages.
+          </aside>
+        </section>
+      </section>
+
+
+      <!-- ... Tagged types -->
+
+      <section>
+        <section>
+          <h3>b. Tagged types</h3>
+
+          <aside class="notes">
+            Let's look at another kind of invalid state, and how we can make it unrepresentable by using something called "tagged types".
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="code-tagged-1"><code class="hljs swift" data-line-numbers>
+  struct User {
+    let id: String
+    let name: String
+  }
+
+  struct Post {
+    let id: String
+    let text: String
+  }
+
+  func remove(id: String) { ... }
+            </code></pre>
+
+          <aside class="notes">
+            Here's a code sample. We have two structs that represent entities in our domain level for users and posts. And we have this function to remove a user that accepts a string representing the user's ID. Can you see how we might put it into an invalid state?
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="code-tagged-1"><code class="hljs swift" data-line-numbers="13,14">struct User {
+  let id: String
+  let name: String
+}
+
+struct Post {
+  let id: String
+  let text: String
+}
+
+func remove(id: String) { ... }
+
+remove(id: user.id) // ✅ Valid
+remove(id: post.id) // ❌ Valid, but wrong
+            </code></pre>
+
+          <aside class="notes">
+            We can call remove with an id for the wrong thing. This is an obvious bug, but it's one that is allowed by the way we wrote the code.
+            <br/>
+            Now in this example, we can probably just give the remove function a better name, or better yet, choose a better argument label. But let's look a little deeper.
+            <br/>
+            Another way to look at the problem is that we're using the same type, String,to represent the IDs of both users and posts. We're subconsciously signalling that these IDs are interchangeable; after all, any argument that accepts a user ID will also accept a post ID. What can we change?
+          </aside>
+        </section>
+
+        <section>
+          <pre data-id="code-tagged-2"><code class="hljs swift" data-line-numbers="">func delay(_ work: () -> Void, by seconds: Int) {
+    // ...
+}
+
+extension Int {
+    static let standardDelayTimeInMilliseconds: Int = 1000
+}
+
+func testDelay() {
+    delay({ print("hi") }, by: .standardDelayTimeInMilliseconds)
+}
+          </code></pre>
+
+          <aside class="notes">
+            Here's another example where changing the naming is maybe not such an elegant solution. The delay function accepts a delay time which is <b>assumed</b> to be in seconds, but nothing prevents us from passing a value that represents milliseconds.
+            <br/>
+            Another way to think of this problem is that the differentiation between seconds and milliseconds only exists in the semantic level. By reading the words in the functions, we will hopefully see that the method is meant to deal with seconds, and that the constant is meant to be used as milliseconds. If we want to make this more robust, we could elevate the differentiation to the type level.
+            <br/>
+            As a simple approach, we could just create distinct subclasses for each semantic concept — i.e. create a subclass of Int for seconds and another subclass for milliseconds — so that the types are not equivalient. However:
+            <ul>
+              <li>this isn’t always possible (e.g. in Swift, you can’t subclass String or Int or UUID). And</li>
+              <li>if we follow this approach dogmatically, we’ll quickly pollute the global namespace with all these types.</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="code-tagged-3"><code class="hljs swift" data-line-numbers>struct Tagged&lt;Tag, RawValue> {
+  var rawValue: RawValue
+}
+          </code></pre>
+<a href="https://github.com/pointfreeco/swift-tagged">github.com/pointfreeco/swift-tagged</a>
+          <aside class="notes">
+            We can refine the idea but introducing a new helper struct that lets us "tag" simple types as being specific to other types.
+          </aside>
+        </section>
+
+        <section data-auto-animate>
+          <pre data-id="code-tagged-3"><code class="hljs swift" data-line-numbers="12|6,7|16|18,19">struct Tagged&lt;Tag, RawValue> {
+  var rawValue: RawValue
+}
+
+struct User {
+  typealias ID = Tagged&lt;User, String>
+  let id: ID
+  let name: String
+}
+
+struct Post {
+  let id: Tagged&lt;Post, String>
+  let text: String
+}
+
+func remove(id: User.ID) { ... }
+
+remove(id: user.id) // ✅ Valid
+//remove(id: post.id) // ✅ Doesn't compile
+          </code></pre>
+
+          <aside class="notes">
+            Here is how we use it. Instead of using a raw string as an ID, we use a string that was tagged to the user or post type. From a type system point of view, this means ID has a unique type that is not interchangeable with normal strings or with other tagged types.
+            <br/>
+            For ease of use we can define a little alias for the type.
+            <br/>
+            Then at the function, we just accept this special type instead of a general string. This gives us type-safety, in that you can't call this function with the wrong kind of ID, and also in terms of just reading the code, this makes it very clear what this function expects.
+            <br/>
+            Then lastly at the call site, we're allowed to call the function with a valid user ID, but if we try to pass a post ID, it simply won't compile because the type doesn't match. We get compile-level checking that our code is correct, and a bug that was previously possible is now unrepresentable.
+          </aside>
+        </section>
+
+        <section>
+          <pre data-id="code-tagged-3"><code class="hljs swift" data-line-numbers="1-5|7-9|11-13|17-19">enum SecondsTag {}
+typealias Seconds = Tagged&lt;SecondsTag, Double>
+
+enum MillisecondsTag {}
+typealias Milliseconds = Tagged&lt;MillisecondsTag, Double>
+
+func delay(_ work: () -> Void, by seconds: Seconds) {
+// ...
+}
+
+extension Milliseconds {
+  static let standardDelayTimeInMilliseconds
+    = Milliseconds(rawValue: 1000)
+}
+
+func testDelay() {
+  delay({ print("hi") },
+        by: .standardDelayTimeInMilliseconds)
+  // ✅ Doesn't compile at all!
+}
+          </code></pre>
+          <aside class="notes">
+            Let's wrap it up by looking at the seconds/milliseconds problem. A type can be tagged to a specific type, such as a model like in the previous example, or it can be tagged to a lightweight representational type.
+            <br/>
+            Here, we defined empty enums (which is idiomatic in Swift) tags for seconds and milliseconds, and then made typealiases for Double values tagged to those types. Note that both Seconds and Milliseconds wrap Double, but they're not interchangeable!
+            <br/>
+            We change the delay function to explicitly only accept our tagged type for Seconds, and we change the Int extension so that our standard delay time constant returns a tagged type for milliseconds.
+            <br/>
+            And now of course, when we try to call the delay function with milliseconds, it is not just a logic error but also a compile error.
+          </aside>
         </section>
       </section>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <script src="dist/reveal.js"></script>
   <script src="plugin/notes/notes.js"></script>
