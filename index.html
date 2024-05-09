@@ -85,10 +85,9 @@
           <section>
             <h2>Overview</h2>
             <ol>
-              <li>Background: on language</li>
+              <li>On language</li>
               <li>An opinion</li>
-              <li>A tweet</li>
-              <li>A concept</li>
+              <li>A concept in programming</li>
             </ol>
             <aside class="notes">
               Here’s a quick overview of the main points we’ll hit today. (Just
@@ -100,25 +99,9 @@
         <!-- 1. BACKGROUND -->
 
         <section data-background="#262227">
-          <h2>1. Background</h2>
-          <p><i>On language</i></p>
-          <aside class="notes">
-            It’s pretty interesting that, as software people, our main tool for
-            doing our jobs is <i>language</i>. I mean yes, we use programming
-            languages, but they are languages nonetheless. So let’s talk about
-            language for a bit.
-          </aside>
-        </section>
-
-        <section>
-          <h3>Language and technology</h3>
-          TODO
-          <aside class="notes"></aside>
-        </section>
-
-        <section>
-          <h3>Language and mind</h3>
           <section>
+            <h2>1. Background</h2>
+            <p><i>On language... and the mind</i></p>
             <p class="fragment">
               Linguistic relativity (Sapir-Whorf): the structure of a language
               influences its speakers' worldview or cognition, and thus
@@ -126,6 +109,11 @@
               the world (?)
             </p>
             <aside class="notes">
+              It’s pretty interesting that, as software people, our main tool
+              for doing our jobs is <i>language</i>. I mean yes, we use
+              programming languages, but they are languages nonetheless. So
+              let’s talk about language for a bit.
+              <br />
               Any fans in the audience of Denis Villeneuve's sci-fi movie
               Arrival? Without spoiling anything, the movie goes into a concept
               called "linguistic relativity", and even mentions by name Sapir
@@ -307,18 +295,10 @@
           </aside>
         </section>
 
-        <!-- 3. A TWEET -->
-
-        <section data-background="#262227">
-          <h2>3. A (controversial) tweet</h2>
-          TODO
-          <aside class="notes"></aside>
-        </section>
-
-        <!-- 4. A CONCEPT -->
+        <!-- 3. A CONCEPT -->
 
         <section>
-          <h2>4. A concept</h2>
+          <h2>3. A concept in programming</h2>
           <p>Making invalid state unrepresentable</p>
 
           <ol type="a" class="fragment">
@@ -1071,6 +1051,46 @@ MyDate(day: 1, weekday: .monday, month: .march)
             to you. But hopefully it helps you to know that this concept exists;
             it might still influence your thoughts around code and software
             design!
+          </aside>
+        </section>
+
+        <section>
+          <h1>Summary</h1>
+          <ul class="r-fit-text">
+            <li>Language is linked to understanding (?)</li>
+            <li>In code, it matters how we say it</li>
+            <li>Fix bugs preemptively by making them unrepresentable</li>
+            <li>
+              "Maybe" structures make it explicit when things can and cannot be
+              null
+            </li>
+            <li>
+              Non-interchangebility of concepts can be enforced at the type
+              level
+            </li>
+            <li>
+              Values can be guaranteed to be non-negative or non-empty by using
+              types
+            </li>
+            <li>Closed sets narrow down possible values to only valid ones</li>
+            <li>
+              Algebraic "and" and "or" (product and sum) types help us correctly
+              express state
+            </li>
+          </ul>
+          <aside class="notes">
+            So that's our time! What have we talked about today?
+            <ul>
+              <li>
+                Language seems to be very deeply linked to how we understand
+                things, and the way we express concepts seems to matter
+              </li>
+              <li>
+                This extends to the code we write, and there are many possible
+                nuances in how we code, so we should spare some effort to think
+                about how we're expressing our programs
+              </li>
+            </ul>
           </aside>
         </section>
       </div>
