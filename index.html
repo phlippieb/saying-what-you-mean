@@ -591,9 +591,7 @@ extension Int {
     static let standardDelayTimeInMilliseconds: Int = 1000
 }
 
-func testDelay() {
-    delay({ print("hi") }, by: .standardDelayTimeInMilliseconds)
-}
+delay({ print("hi") }, by: .standardDelayTimeInMilliseconds)
           </code></pre>
             <aside class="notes">
               Here's another example where changing the naming is maybe not such
@@ -705,11 +703,8 @@ extension Milliseconds {
     = Milliseconds(rawValue: 1000)
 }
 
-func testDelay() {
-  delay({ print("hi") },
-        by: .standardDelayTimeInMilliseconds)
-  // ✅ Doesn't compile at all!
-}
+// delay({ print("hi") }, by: .standardDelayTimeInMilliseconds)
+// ✅ Doesn't compile at all!
           </code></pre>
             <aside class="notes">
               Let's wrap it up by looking at the seconds/milliseconds problem. A
