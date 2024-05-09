@@ -1,355 +1,364 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>reveal.js</title>
 
-  <title>reveal.js</title>
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
 
-  <link rel="stylesheet" href="dist/reset.css" />
-  <link rel="stylesheet" href="dist/reveal.css" />
-  <link rel="stylesheet" href="dist/theme/black.css" />
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
 
-  <!-- Theme used for syntax highlighted code -->
-  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
-</head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- INTRO -->
 
-<body>
-  <div class="reveal">
-    <div class="slides">
-      <!-- TITLE -->
-
-      <section>
         <section>
-          <h1>Saying what you mean</h1>
-          <p>How precise language eliminates bugs</p>
+          <section>
+            <h1>Saying what you mean</h1>
+            <p>How precise language eliminates bugs</p>
+            <aside class="notes">
+              In South Africa, we dont say “hello”, we say “haazit boet”, and I
+              think it’s beautiful. This talk is called saying what you mean,
+              and I hope that by the end of it, you will think about language in
+              a new way, and that you will see programming as an extension of
+              that, and that you will have learned a few techniques that allow
+              you to manipulate how you express yourself in code to write better
+              software.
+            </aside>
+          </section>
 
+          <section>
+            <h2>About me</h2>
+            <p>👋🏻 Phlippie Bosman</p>
+            <p>🫰🏻 <a href="https://retrorabbit.co.za">Retro Rabbit</a></p>
+            <p>
+              🧑🏻‍💻 github.com/<a href="https://github.com/phlippieb">phlippieb</a>
+            </p>
+            <p>
+              🐻
+              <a href="https://phlippieb.bearblog.dev">phlippieb</a
+              >.bearblog.dev
+            </p>
+            <aside class="notes">
+              My name is Phlippie. That is my real name. I will not elaborate
+              any further. For money, I work as a mobile developer at a cosy
+              little software consultancy called Retro Rabbit. I have some stuff
+              on Git Hub, and I blog sometimes and put it on bearblog, which is
+              a super lightweight blogging platform built by a South African dev
+              called Herman Martinus; check it out!
+            </aside>
+          </section>
+
+          <section>
+            <h2>These slides</h2>
+            <p>Made with <a href="https://revealjs.com/">reveal js</a></p>
+            <p>
+              View at
+              <a href="https://phlippieb.github.io/saying-what-you-mean"
+                >phlippieb.github.io/saying-what-you-mean</a
+              >
+            </p>
+            <p>
+              Source at
+              <a href="https://github.com/phlippieb/saying-what-you-mean"
+                >github.com/phlippieb/saying-what-you-mean</a
+              >
+            </p>
+            <aside class="notes">
+              I used to be an assistant lecturer and students’ first question
+              was always “can we get the slides” so let’s get that out of the
+              way first. For the curious, these slides were made in reveal.js.
+              You can view them at this URL, and the source is on github.
+            </aside>
+          </section>
+
+          <section>
+            <h2>Overview</h2>
+            <ol>
+              <li>Background: on language</li>
+              <li>An opinion</li>
+              <li>A tweet</li>
+              <li>A concept</li>
+            </ol>
+            <aside class="notes">
+              Here’s a quick overview of the main points we’ll hit today. (Just
+              briefly ready them out)
+            </aside>
+          </section>
+        </section>
+
+        <!-- 1. BACKGROUND -->
+
+        <section data-background="#262227">
+          <h2>1. Background</h2>
+          <p><i>On language</i></p>
           <aside class="notes">
-            In South Africa, we dont say “hello”, we say “haazit boet”, and I
-            think it’s beautiful. This talk is called saying what you mean,
-            and I hope that by the end of it, you will think about language in
-            a new way, and that you will see programming as an extension of
-            that, and that you will have learned a few techniques that allow
-            you to manipulate how you express yourself in code to write better
-            software.
+            It’s pretty interesting that, as software people, our main tool for
+            doing our jobs is <i>language</i>. I mean yes, we use programming
+            languages, but they are languages nonetheless. So let’s talk about
+            language for a bit.
           </aside>
         </section>
 
         <section>
-          <h2>About me</h2>
-          <p>👋🏻 Phlippie Bosman</p>
-          <p>🫰🏻 <a href="https://retrorabbit.co.za">Retro Rabbit</a></p>
-          <p>
-            🧑🏻‍💻 github.com/<a href="https://github.com/phlippieb">phlippieb</a>
-          </p>
-          <p>
-            🐻
-            <a href="https://phlippieb.bearblog.dev">phlippieb</a>.bearblog.dev
-          </p>
-
-          <aside class="notes">
-            My name is Phlippie. That is my real name. I will not elaborate
-            any further. For money, I work as a mobile developer at a cosy
-            little software consultancy called Retro Rabbit. I have some stuff
-            on Git Hub, and I blog sometimes and put it on bearblog, which is
-            a super lightweight blogging platform built by a South African dev
-            called Herman Martinus; check it out!
-          </aside>
+          <h3>Language and technology</h3>
+          TODO
+          <aside class="notes"></aside>
         </section>
 
         <section>
-          <h2>These slides</h2>
-          <p>Made with <a href="https://revealjs.com/">reveal js</a></p>
-          <p>
-            View at
-            <a href="https://phlippieb.github.io/saying-what-you-mean">phlippieb.github.io/saying-what-you-mean</a>
-          </p>
-          <p>
-            Source at
-            <a href="https://github.com/phlippieb/saying-what-you-mean">github.com/phlippieb/saying-what-you-mean</a>
-          </p>
+          <h3>Language and mind</h3>
+          <section>
+            <p class="fragment">
+              Linguistic relativity (Sapir-Whorf): the structure of a language
+              influences its speakers' worldview or cognition, and thus
+              individuals' languages determine or influence their perceptions of
+              the world (?)
+            </p>
+            <aside class="notes">
+              Any fans in the audience of Denis Villeneuve's sci-fi movie
+              Arrival? Without spoiling anything, the movie goes into a concept
+              called "linguistic relativity", and even mentions by name Sapir
+              and Whorf, the two researchers to whom the idea is often
+              attributed. The hypothesis is basically that the language that you
+              speak and understand to some degree determines or influences your
+              thoughts and your worldview. It's quite an intuitive idea if you
+              think about it, and there are lots of interesting real-world
+              examples that seem to support it.
+            </aside>
+          </section>
 
-          <aside class="notes">
-            I used to be an assistant lecturer and students’ first question
-            was always “can we get the slides” so let’s get that out of the
-            way first. For the curious, these slides were made in reveal.js.
-            You can view them at this URL, and the source is on github.
-          </aside>
+          <section>
+            <ul>
+              <li>Pronoun drop: collectivist cultures [1]</li>
+              <li>Absolute cardinal directions: improved orientation [2]</li>
+              <li>
+                Non-agentive language for accidents: less likely to remember who
+                caused accidents [2]
+              </li>
+            </ul>
+            <p>
+              [1]
+              <a
+                href="https://courses.lumenlearning.com/waymaker-psychology/chapter/reading-language-and-thought"
+                >courses.lumenlearning.com/waymaker-psychology/chapter/reading-language-and-thought</a
+              >
+            </p>
+            <p>
+              [2]
+              <a
+                href=" https://www.scientificamerican.com/article/how-language-shapes-thought/"
+                >www.scientificamerican.com/article/how-language-shapes-thought</a
+              >
+            </p>
+            <aside class="notes">
+              <ul>
+                <li>
+                  Some languages (e.g. Japanese) allow you to drop pronouns;
+                  instead of saying "I went there", you can just say "went
+                  there". There seems to be a link between these languages where
+                  we mention ourselves less frequently, and a more collectivist,
+                  community-oriented culture.
+                </li>
+                <li>
+                  Guugu Yimithirr (language in North Queensland, Australia)
+                  doesn't have relative directions (like left, right), only
+                  absolute directions (like north, south). Speakers of these
+                  languages tend to always know where north is, even when
+                  they're inside. This is not a skill most others have!
+                </li>
+                <li>
+                  Researchers designed an experiment where speakers of English,
+                  Japanese and Spanish watched videos of people breaking things,
+                  either by accident or on purpose. Unlike English, Japanese and
+                  Spanish doesn't use agentive language for accidents - instead
+                  of saying "john broke the vase", they will say "the vase
+                  broke". After watching the videos, speakers of these languages
+                  were equally likely to remember who broke something
+                  <i>on purpose</i>, but less likely to remember who broke
+                  something <i>accidentally</i>.
+                </li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <ul>
+              <li>Time as a resource or a cycle [1]</li>
+              <li>Colors - red vs pink; blue vs light blue [1]</li>
+              <li>Newspeak, 1984</li>
+            </ul>
+            <p>
+              [1]
+              <a
+                href="https://www.linguisticsociety.org/content/does-language-i-speak-influence-way-i-think"
+                >www.linguisticsociety.org/content/does-language-i-speak-influence-way-i-think</a
+              >
+            </p>
+            <aside class="notes">
+              <ul>
+                <li>
+                  In English, time is "stuff" (two days, three hours). We think
+                  of it as something that can be saved, wasted, lost, spent. In
+                  Hopi (Native American language) it is seen as a cycle. Can you
+                  imagine how this might change your outlook?
+                </li>
+                <li>
+                  Even the colour-ignorant among us tend to think of pink as its
+                  own colour, distinct from red. Is it because it has a
+                  different name? Russian has different names for darker and
+                  lighter shades of blue.
+                </li>
+                <li>
+                  The idea is also central to the fictional language "Newspeak"
+                  imposed by the totalitarian government in George Orwell's
+                  novel 1984. The idea is that, by making the populace speak a
+                  language without words for rebellion and uprising, they won't
+                  be able to think about those concepts.
+                </li>
+              </ul>
+            </aside>
+          </section>
+
+          <section>
+            <p>Wittgenstein:</p>
+            <blockquote>
+              The limits of my language mean the limits of my world
+            </blockquote>
+            <p>Kravchenko:</p>
+            <blockquote class="r-fit-text">
+              An existing impasse in the study of this relationship […] between
+              language and mind […] cannot be overcome as long as the problem
+              itself is not reformulated to rid it of the intrinsically
+              dualistic assumption that there is, in fact, a phenomenon called
+              ‘language’ that is ontologically independent of the phenomenon
+              called ‘mind.’ […] mind cannot be understood without and outside
+              of language.
+            </blockquote>
+          </section>
+
+          <section>
+            Disclaimer: Linguistic determinism probably not real
+            <aside class="notes">
+              Please note that the strong version of the Sapir Whorf hypothesis,
+              aka linguistic determinish, which is that language
+              <b>determines</b> thoughts, is pretty much universally rejected by
+              linguists; not having a word for something does not restrict us
+              from thinking about it. As an example, have you ever said "I can't
+              explain how I'm feeling"? However, a looser form of the hypothesis
+              really seems to resonate with most people, and be supported by
+              empirical evidence. Having or learning a word for a concept does
+              seem to help us integrate it into our thinking, and more
+              efficiently communicate about that concept with others. We might
+              argue that the people in 1984 would still be able to think about
+              rebellion, but would have a much harder time organising a coup
+              among one another without having the necessary language to
+              communicate about it.
+            </aside>
+          </section>
         </section>
 
+        <!-- 2. OPINION: PRECISE LANGUAGE -->
+
         <section>
-          <h2>Overview</h2>
-          <ol>
-            <li>Background: on language</li>
-            <li>An opinion</li>
-            <li>A tweet</li>
-            <li>A concept</li>
-          </ol>
-
-          <aside class="notes">
-            Here’s a quick overview of the main points we’ll hit today. (Just
-            briefly ready them out)
-          </aside>
-        </section>
-      </section>
-
-      <!-- 1. BACKGROUND -->
-
-      <section data-background="#262227">
-        <h2>1. Background</h2>
-        <p><i>On language</i></p>
-
-        <aside class="notes">
-          It’s pretty interesting that, as software people, our main tool for
-          doing our jobs is <i>language</i>. I mean yes, we use programming
-          languages, but they are languages nonetheless. So let’s talk about
-          language for a bit.
-        </aside>
-      </section>
-
-      <section>
-        <h3>Language and technology</h3>
-        TODO
-
-        <aside class="notes"></aside>
-      </section>
-
-      <section>
-        <h3>Language and mind</h3>
-        <section>
+          <h2>2. An opinion</h2>
+          <p>
+            Writing clearly (in code) is a professional responsibility, not an
+            optional soft skill.
+          </p>
           <p class="fragment">
-            Linguistic relativity (Sapir-Whorf): the structure of a language
-            influences its speakers' worldview or cognition, and thus
-            individuals' languages determine or influence their perceptions
-            of the world (?)
+            Moreover, the process of refining messy code into something clear
+            and readable is about more than just writing style; it’s about
+            sorting out your own mental model of the code, organising your
+            thoughts, mastering the subject matter, and then putting it down
+            clearly, so that others can benefit from your mental efforts.
           </p>
-
           <aside class="notes">
-            Any fans in the audience of Denis Villeneuve's sci-fi movie
-            Arrival? Without spoiling anything, the movie goes into a
-            concept called "linguistic relativity", and even mentions by
-            name Sapir and Whorf, the two researchers to whom the idea is
-            often attributed. The hypothesis is basically that the language
-            that you speak and understand to some degree determines or
-            influences your thoughts and your worldview. It's quite an
-            intuitive idea if you think about it, and there are lots of
-            interesting real-world examples that seem to support it.
+            So having hopefully convinced you that languge is more than just a
+            necessary evil — more than just some background medium through which
+            we must wade — I hope I can get you onboard with this opinion that I
+            have.
+            <br />
+            Our job is language. We spend our working days "saying" things,
+            through the act of programming and refactoring. And I strongly
+            believe that it doesn't just matter what we say, but that how we say
+            it is vitally important.
+            <br />
+            So as professionals who get paid a fair amount of money, I believe
+            we ought to hold each other accountable for mastering the art of
+            language, and writing clearly.
+            <br />
+            But I want to go deeper and say that it's not just about putting
+            something down in a file that won't make others developers hate you
+            when they read it. We've talked about the link between language and
+            mind, and I believe that spending the extra effort to find the right
+            way to write a piece of code is about figuring out, internally, in
+            your mind, what the code is really trying to say.
           </aside>
         </section>
 
+        <!-- 3. A TWEET -->
+
+        <section data-background="#262227">
+          <h2>3. A (controversial) tweet</h2>
+          TODO
+          <aside class="notes"></aside>
+        </section>
+
+        <!-- 4. A CONCEPT -->
+
         <section>
-          <ul>
-            <li>Pronoun drop: collectivist cultures [1]</li>
-            <li>Absolute cardinal directions: improved orientation [2]</li>
-            <li>
-              Non-agentive language for accidents: less likely to remember
-              who caused accidents [2]
-            </li>
-          </ul>
+          <h2>4. A concept</h2>
+          <p>Making invalid state unrepresentable</p>
 
-          <p>
-            [1]
-            <a
-              href="https://courses.lumenlearning.com/waymaker-psychology/chapter/reading-language-and-thought">courses.lumenlearning.com/waymaker-psychology/chapter/reading-language-and-thought</a>
-          </p>
-          <p>
-            [2]
-            <a
-              href=" https://www.scientificamerican.com/article/how-language-shapes-thought/">www.scientificamerican.com/article/how-language-shapes-thought</a>
-          </p>
-
+          <ol type="a" class="fragment">
+            <li>Maybe, Optional, Nullable</li>
+            <li>Tagged types</li>
+            <li>NonEmpty</li>
+            <li>Closed sets, discriminated unions</li>
+          </ol>
           <aside class="notes">
-            <ul>
-              <li>
-                Some languages (e.g. Japanese) allow you to drop pronouns;
-                instead of saying "I went there", you can just say "went
-                there". There seems to be a link between these languages
-                where we mention ourselves less frequently, and a more
-                collectivist, community-oriented culture.
-              </li>
-              <li>
-                Guugu Yimithirr (language in North Queensland, Australia)
-                doesn't have relative directions (like left, right), only
-                absolute directions (like north, south). Speakers of these
-                languages tend to always know where north is, even when
-                they're inside. This is not a skill most others have!
-              </li>
-              <li>
-                Researchers designed an experiment where speakers of
-                English, Japanese and Spanish watched videos of people
-                breaking things, either by accident or on purpose. Unlike
-                English, Japanese and Spanish doesn't use agentive language
-                for accidents - instead of saying "john broke the vase",
-                they will say "the vase broke". After watching the videos,
-                speakers of these languages were equally likely to remember
-                who broke something <i>on purpose</i>, but less likely to
-                remember who broke something <i>accidentally</i>.
-              </li>
-            </ul>
+            Ok, so far this stuff has been a bit airy-fairy-soft-sciency, and
+            this talk pretty much amounts to "write clean code". So let's make
+            it more interesting and talk about a specific way in which we can
+            use the nuances of language to our advantage. I'd like to tell you
+            about a concept called "making invalid state unrepresentable".
+            <br />
+            Just like how a natural language might lack a word for something,
+            our code might be written in such a way that it lacks the ability to
+            express something. We can use this to our advantage to make certain
+            bad things impossible to write.
+            <br />
+            The basic concept is: if it is an error (or a bug) for a program to
+            be in a certain state, then you can program it to make it impossible
+            to even represent that state. That way, the error literally cannot
+            occur.
+            <br />
+            This is a little hard to understand in the abstract, so let’s look
+            at some concrete examples. We're going to talk about 4 strategies or
+            concepts:
           </aside>
         </section>
 
-        <section>
-          <ul>
-            <li>Time as a resource or a cycle [1]</li>
-            <li>Colors - red vs pink; blue vs light blue [1]</li>
-            <li>Newspeak, 1984</li>
-          </ul>
-
-          <p>
-            [1]
-            <a
-              href="https://www.linguisticsociety.org/content/does-language-i-speak-influence-way-i-think">www.linguisticsociety.org/content/does-language-i-speak-influence-way-i-think</a>
-          </p>
-          <aside class="notes">
-            <ul>
-              <li>
-                In English, time is "stuff" (two days, three hours). We
-                think of it as something that can be saved, wasted, lost,
-                spent. In Hopi (Native American language) it is seen as a
-                cycle. Can you imagine how this might change your outlook?
-              </li>
-              <li>
-                Even the colour-ignorant among us tend to think of pink as
-                its own colour, distinct from red. Is it because it has a
-                different name? Russian has different names for darker and
-                lighter shades of blue.
-              </li>
-              <li>
-                The idea is also central to the fictional language
-                "Newspeak" imposed by the totalitarian government in George
-                Orwell's novel 1984. The idea is that, by making the
-                populace speak a language without words for rebellion and
-                uprising, they won't be able to think about those concepts.
-              </li>
-            </ul>
-          </aside>
-        </section>
+        <!-- ... Maybe, Optional, Nullable -->
 
         <section>
-          <p>Wittgenstein:</p>
-          <blockquote>
-            The limits of my language mean the limits of my world
-          </blockquote>
-          <p>Kravchenko:</p>
-          <blockquote class="r-fit-text">
-            An existing impasse in the study of this relationship […]
-            between language and mind […] cannot be overcome as long as the
-            problem itself is not reformulated to rid it of the
-            intrinsically dualistic assumption that there is, in fact, a
-            phenomenon called ‘language’ that is ontologically independent
-            of the phenomenon called ‘mind.’ […] mind cannot be understood
-            without and outside of language.
-          </blockquote>
-        </section>
-
-        <section>
-          Disclaimer: Linguistic determinism probably not real
-
-          <aside class="notes">
-            Please note that the strong version of the Sapir Whorf
-            hypothesis, aka linguistic determinish, which is that language
-            <b>determines</b> thoughts, is pretty much universally rejected
-            by linguists; not having a word for something does not restrict
-            us from thinking about it. As an example, have you ever said "I
-            can't explain how I'm feeling"? However, a looser form of the
-            hypothesis really seems to resonate with most people, and be
-            supported by empirical evidence. Having or learning a word for a
-            concept does seem to help us integrate it into our thinking, and
-            more efficiently communicate about that concept with others. We
-            might argue that the people in 1984 would still be able to think
-            about rebellion, but would have a much harder time organising a
-            coup among one another without having the necessary language to
-            communicate about it.
-          </aside>
-        </section>
-      </section>
-      </section>
-
-      <!-- 2. OPINION: PRECISE LANGUAGE -->
-
-      <section>
-        <h2>2. An opinion</h2>
-        <p>
-          Writing clearly (in code) is a professional responsibility, not an
-          optional soft skill.
-        </p>
-        <p class="fragment">
-          Moreover, the process of refining messy code into something clear
-          and readable is about more than just writing style; it’s about
-          sorting out your own mental model of the code, organising your
-          thoughts, mastering the subject matter, and then putting it down
-          clearly, so that others can benefit from your mental efforts.
-        </p>
-
-        <aside class="notes">
-          So having hopefully convinced you that languge is more than just a necessary evil — more than just some
-          background medium through which we must wade — I hope I can get you onboard with this opinion that I have.
-          <br>
-          Our job is language. We spend our working days "saying" things, through the act of programming and
-          refactoring. And I strongly believe that it doesn't just matter what we say, but that how we say it is vitally
-          important.
-          <br>
-          So as professionals who get paid a fair amount of money, I believe we ought to hold each other accountable for
-          mastering the art of language, and writing clearly.
-          <br>
-          But I want to go deeper and say that it's not just about putting something down in a file that won't make
-          others developers hate you when they read it. We've talked about the link between language and mind, and I
-          believe that spending the extra effort to find the right way to write a piece of code is about figuring out,
-          internally, in your mind, what the code is really trying to say.
-        </aside>
-      </section>
-      </section>
-
-      <!-- 3. A TWEET -->
-
-      <section data-background="#262227">
-        <h2>3. A (controversial) tweet</h2>
-        TODO
-
-        <aside class="notes"></aside>
-      </section>
-
-      <!-- 4. A CONCEPT -->
-
-      <section>
-        <h2>4. A concept</h2>
-        <p>Making invalid state unrepresentable</p>
-
-        <ol type="a" class="fragment">
-          <li>Maybe, Optional, Nullable</li>
-          <li>Tagged types</li>
-          <li>NonZero, NonEmpty</li>
-          <li>Closed sets, discriminated unions</li>
-        </ol>
-
-        <aside class="notes">
-          Ok, so far this stuff has been a bit airy-fairy-soft-sciency, and this talk pretty much amounts to "write
-          clean code". So
-          let's make it more interesting and talk about a specific way in which we can use the nuances of language to
-          our advantage. I'd like to tell you about a concept called "making invalid state unrepresentable".
-          <br>
-          Just like how a natural language might lack a word for something, our code might be written in such a way that
-          it
-          lacks the ability to express something. We can use this to our advantage to make certain bad things impossible
-          to write.
-          <br>
-          The basic concept is: if it is an error (or a bug) for a program to be in a certain state, then you can
-          program it to make it impossible to even represent that state. That way, the error literally cannot occur.
-          <br>
-          This is a little hard to understand in the abstract, so let’s look at some concrete examples. We're going to
-          talk about 4 strategies or concepts:
-        </aside>
-      </section>
-
-      <!-- ... Maybe, Optional, Nullable -->
-
-      <section>
-        <section data-auto-animate>
-          <h3>a. Maybe, Optional, Nullable</h3>
-          <pre data-id="code-1" class="fragment"><code class="hljs java" data-trim data-line-numbers>
-              public class MyClass {
+          <section data-auto-animate>
+            <h3>a. Maybe, Optional, Nullable</h3>
+            <pre
+              data-id="code-1"
+              class="fragment"
+            ><code class="hljs java" data-trim data-line-numbers>public class MyClass {
               &nbsp;static String getValue() {
               &nbsp;&nbsp;return "Hello world!";
               &nbsp;}
@@ -362,17 +371,18 @@
               }
             </code></pre>
 
-          <aside class="notes">
-            Ok, so we mentioned “invalid state”. What kind of invalid state are we talking about? Let's look at a simple
-            example, especially if you've ever worked in Java or C++. Here's some innocent Java code...
+            <aside class="notes">
+              Ok, so we mentioned “invalid state”. What kind of invalid state
+              are we talking about? Let's look at a simple example, especially
+              if you've ever worked in Java or C++. Here's some innocent Java
+              code...
+            </aside>
+          </section>
 
-
-          </aside>
-        </section>
-
-        <section data-auto-animate>
-          <pre data-id="code-1"><code class="hljs java" data-trim data-line-numbers="3,9">
-              public class MyClass {
+          <section data-auto-animate>
+            <pre
+              data-id="code-1"
+            ><code class="hljs java" data-trim data-line-numbers="3,9">public class MyClass {
               &nbsp;static String getValue() {
               &nbsp;&nbsp;return null;
               &nbsp;}
@@ -384,41 +394,51 @@
               &nbsp;}
               }
             </code></pre>
+            <aside class="notes">
+              If we just change the content of our function to return null, we
+              get this error that might give you some mild PTSD:
+              “NullPointerException”. The interesting thing here is that, from a
+              syntax point of view, Java says it's totally allowed and correct
+              to return null from a function that says on the tin it will return
+              a string.
+              <br />
+              One way to look at the problem is that, in languages like Java and
+              C++ and even Go (sorry Go fanboys), for many types, a value can
+              either be present or it can be null. A lot of the time, we don’t
+              actually want those values to be null when we use them. I mean
+              this in the sense that we don’t usually assign a special, valid
+              meaning to the case where a value is null. Null is often simply an
+              invalid state. Yes, you write your checks for it, so if your
+              program is relatively well-written, you shouldn’t see runtime
+              exceptions. But let's look beyond the semantic level: Can we make
+              that invalid state unrepresentable at the type level instead, so
+              that writing a check doesn’t for null even make sense?
+              <br />
+              We can! But not necessarily in Java. I said this was an easy
+              example, not a good one.
+            </aside>
+          </section>
 
-          <aside class="notes">
-            If we just change the content of our function to return null, we get this error that might give you some
-            mild PTSD: “NullPointerException”. The interesting thing here is that, from a syntax point of view, Java
-            says it's totally allowed and correct to return null from a function that says on the tin it will return a
-            string.
-            <br>
-            One way to look at the problem is that, in languages like Java and C++ and even Go (sorry Go fanboys), for
-            many types, a value can either be present or it can be null. A lot of the time, we don’t actually want those
-            values to be null when we use them. I mean this in the sense that we don’t usually assign a special, valid
-            meaning to the case where a value is null. Null is often simply an invalid state. Yes, you write your checks
-            for it, so if your program is relatively well-written, you shouldn’t see runtime exceptions. But let's look
-            beyond the semantic level: Can we make that invalid state unrepresentable at the type level
-            instead, so that writing
-            a check doesn’t for null even make sense?
-            <br>
-            We can! But not necessarily in Java. I said this was an easy example, not a good one.
-          </aside>
-        </section>
+          <section data-auto-animate>
+            <h3>The Maybe monad</h3>
+            <p>
+              (Understanding monads:
+              <a href="https://www.youtube.com/watch?v=C2w45qRc3aU">
+                https://youtu.be/C2w45qRc3aU</a
+              >)
+            </p>
+            <aside class="notes">
+              Many modern languages provide some version of the Maybe monad. I’m
+              not going to try and explain what a monad is (but it’s actually
+              not so complicated, and here is a link to video that explains is
+              very well). We’ll just talk about “maybe”.
+            </aside>
+          </section>
 
-        <section data-auto-animate>
-          <h3>The Maybe monad</h3>
-          <p>(Understanding monads: <a href="https://www.youtube.com/watch?v=C2w45qRc3aU">
-              https://youtu.be/C2w45qRc3aU</a>)</p>
-
-          <aside class="notes">
-            Many modern languages provide some version of the Maybe monad. I’m not going to try and explain what a
-            monad
-            is (but it’s actually not so complicated, and here is a link to video that explains is very well). We’ll
-            just talk about “maybe”.
-          </aside>
-        </section>
-
-        <section data-auto-animate>
-          <pre data-id="code-2"><code class="hljs swift" data-line-numbers="1-5|7-12|14-15">
+          <section data-auto-animate>
+            <pre
+              data-id="code-2"
+            ><code class="hljs swift" data-line-numbers="1-5|7-12|14-15">
               enum Maybe&lt;T> {
               &nbsp;case some(T)
               &nbsp;case none
@@ -434,24 +454,31 @@
               foo(value: .some("hello world"))
               foo(value: .none)
             </code></pre>
+            <aside class="notes">
+              Maybe is a special wrapper type for other types. When a value, for
+              example an int, is wrapped in a Maybe, an instance of that Maybe
+              can either be an instance of that value (an int) or it can be
+              null.
+              <br />
+              Here, we see how a Maybe might be implemented in a language like
+              Swift. It's a simple "either" wrapper type — an instance of a
+              maybe will either contain a wrapped value of T, or it will contain
+              nothing, or none.
+              <br />
+              Using it, if a function considers null to be a valid case, it can
+              accept an instance of a Maybe as an argument. It can then switch
+              over the received value to either unwrap the wrapped value, if it
+              exists, or handle null.
+              <br />
+              We can call this function with either a wrapped value, or with
+              null.
+            </aside>
+          </section>
 
-          <aside class="notes">
-            Maybe is a special wrapper type for other types. When a value, for example an int, is wrapped in a Maybe, an
-            instance of that Maybe can either be an instance of that value (an int) or it can be null.
-            <br>
-            Here, we see how a Maybe might be implemented in a language like Swift. It's a simple "either" wrapper type
-            — an instance of a maybe will either contain a wrapped value of T, or it will contain nothing, or none.
-            <br>
-            Using it, if a function considers null to be a valid case, it can accept an instance of a Maybe as an
-            argument. It can then switch over the received value to either unwrap the wrapped value, if it exists, or
-            handle null.
-            <br>
-            We can call this function with either a wrapped value, or with null.
-          </aside>
-        </section>
-
-        <section data-auto-animate>
-          <pre data-id="code-2"><code class="hljs swift" data-line-numbers="7|8-10|13-15">
+          <section data-auto-animate>
+            <pre
+              data-id="code-2"
+            ><code class="hljs swift" data-line-numbers="7|8-10|13-15">
               enum Maybe&lt;T> {
               &nbsp;case some(T)
               &nbsp;case none
@@ -466,73 +493,82 @@
               foo(value: "hello world")
               // foo(value: .none) ⬅︎ not even valid Swift syntax
             </code></pre>
+            <aside class="notes">
+              Now, let's change our function to accept a normal Int, so no
+              longer a maybe.
+              <br />
+              In the body of the function, we no longer need to handle the null
+              case. Since the argument is not a maybe, we are guaranteed by the
+              type system and the compiler that the value will not be null!
+              <br />
+              At the callsite, we can now only call the function with a non-null
+              value. Trying to pass null is simply not valid Swift syntax and it
+              won't compile.
+              <br />
+              So firstly, this means that the invalid state (null) literally
+              cannot be represented - it is invalid code and will throw a
+              compile error. And secondly, when we *do* want null to represent a
+              special case, we have to make it explicit, meaning that other
+              developers reading the code can see that something can be
+              intentionally made null.
+            </aside>
+          </section>
 
-          <aside class="notes">
-            Now, let's change our function to accept a normal Int, so no longer a maybe.
-            <br>
-            In the body of the function, we no longer need to handle the null case. Since the argument is not a maybe,
-            we are guaranteed by the type system and the compiler that the value will not be null!
-            <br>
-            At the callsite, we can now only call the function with a non-null value. Trying to pass null is simply not
-            valid Swift syntax and it won't compile.
-            <br>
-            So firstly, this means that the invalid state (null) literally cannot be represented - it is invalid code
-            and will throw a compile error. And secondly, when we *do* want null to represent a special case, we have to
-            make it explicit, meaning that other developers reading the code can see that something can be intentionally
-            made null.
-          </aside>
+          <section>
+            <ul>
+              <li>Swift: Optional (let x: Int? = 2)</li>
+              <li>Kotlin: Nullable (val x: Int? = 2)</li>
+              <li>Dart: Nullable (int? x = 2)</li>
+              <li>C#: Nullable (int? x = 2)</li>
+              <li>Rust: Option (let x: Option&lt;u32> = Some(2))</li>
+            </ul>
+            <aside class="notes">
+              This functionality is actually built into Swift, and maybe types
+              are called "optional". Other major languages that support this
+              concept are Kotlin, Dart, C#, Rust, and probably most functional
+              languages.
+            </aside>
+          </section>
         </section>
+
+        <!-- ... Tagged types -->
 
         <section>
-          <ul>
-            <li>Swift: Optional (let x: Int? = 2)</li>
-            <li>Kotlin: Nullable (val x: Int? = 2)</li>
-            <li>Dart: Nullable (int? x = 2)</li>
-            <li>C#: Nullable (int? x = 2)</li>
-            <li>Rust: Option (let x: Option&lt;u32> = Some(2))</li>
-          </ul>
+          <section>
+            <h3>b. Tagged types</h3>
+            <aside class="notes">
+              Let's look at another kind of invalid state, and how we can make
+              it unrepresentable by using something called "tagged types".
+            </aside>
+          </section>
 
-          <aside class="notes">
-            This functionality is actually built into Swift, and maybe types are called "optional". Other major
-            languages that support this concept are Kotlin, Dart, C#, Rust, and probably most functional languages.
-          </aside>
-        </section>
-      </section>
+          <section data-auto-animate>
+            <pre
+              data-id="code-tagged-1"
+            ><code class="hljs swift" data-line-numbers>struct User {
+  let id: String
+  let name: String
+}
 
+struct Post {
+  let id: String
+  let text: String
+}
 
-      <!-- ... Tagged types -->
-
-      <section>
-        <section>
-          <h3>b. Tagged types</h3>
-
-          <aside class="notes">
-            Let's look at another kind of invalid state, and how we can make it unrepresentable by using something called "tagged types".
-          </aside>
-        </section>
-
-        <section data-auto-animate>
-          <pre data-id="code-tagged-1"><code class="hljs swift" data-line-numbers>
-  struct User {
-    let id: String
-    let name: String
-  }
-
-  struct Post {
-    let id: String
-    let text: String
-  }
-
-  func remove(id: String) { ... }
+func remove(id: String) { ... }
             </code></pre>
+            <aside class="notes">
+              Here's a code sample. We have two structs that represent entities
+              in our domain level for users and posts. And we have this function
+              to remove a user that accepts a string representing the user's ID.
+              Can you see how we might put it into an invalid state?
+            </aside>
+          </section>
 
-          <aside class="notes">
-            Here's a code sample. We have two structs that represent entities in our domain level for users and posts. And we have this function to remove a user that accepts a string representing the user's ID. Can you see how we might put it into an invalid state?
-          </aside>
-        </section>
-
-        <section data-auto-animate>
-          <pre data-id="code-tagged-1"><code class="hljs swift" data-line-numbers="13,14">struct User {
+          <section data-auto-animate>
+            <pre
+              data-id="code-tagged-1"
+            ><code class="hljs swift" data-line-numbers="13,14">struct User {
   let id: String
   let name: String
 }
@@ -547,18 +583,27 @@ func remove(id: String) { ... }
 remove(id: user.id) // ✅ Valid
 remove(id: post.id) // ❌ Valid, but wrong
             </code></pre>
+            <aside class="notes">
+              We can call remove with an id for the wrong thing. This is an
+              obvious bug, but it's one that is allowed by the way we wrote the
+              code.
+              <br />
+              Now in this example, we can probably just give the remove function
+              a better name, or better yet, choose a better argument label. But
+              let's look a little deeper.
+              <br />
+              Another way to look at the problem is that we're using the same
+              type, String,to represent the IDs of both users and posts. We're
+              subconsciously signalling that these IDs are interchangeable;
+              after all, any argument that accepts a user ID will also accept a
+              post ID. What can we change?
+            </aside>
+          </section>
 
-          <aside class="notes">
-            We can call remove with an id for the wrong thing. This is an obvious bug, but it's one that is allowed by the way we wrote the code.
-            <br/>
-            Now in this example, we can probably just give the remove function a better name, or better yet, choose a better argument label. But let's look a little deeper.
-            <br/>
-            Another way to look at the problem is that we're using the same type, String,to represent the IDs of both users and posts. We're subconsciously signalling that these IDs are interchangeable; after all, any argument that accepts a user ID will also accept a post ID. What can we change?
-          </aside>
-        </section>
-
-        <section>
-          <pre data-id="code-tagged-2"><code class="hljs swift" data-line-numbers="">func delay(_ work: () -> Void, by seconds: Int) {
+          <section>
+            <pre
+              data-id="code-tagged-2"
+            ><code class="hljs swift" data-line-numbers="">func delay(_ work: () -> Void, by seconds: Int) {
     // ...
 }
 
@@ -570,33 +615,57 @@ func testDelay() {
     delay({ print("hi") }, by: .standardDelayTimeInMilliseconds)
 }
           </code></pre>
+            <aside class="notes">
+              Here's another example where changing the naming is maybe not such
+              an elegant solution. The delay function accepts a delay time which
+              is <b>assumed</b> to be in seconds, but nothing prevents us from
+              passing a value that represents milliseconds.
+              <br />
+              Another way to think of this problem is that the differentiation
+              between seconds and milliseconds only exists in the semantic
+              level. By reading the words in the functions, we will hopefully
+              see that the method is meant to deal with seconds, and that the
+              constant is meant to be used as milliseconds. If we want to make
+              this more robust, we could elevate the differentiation to the type
+              level.
+              <br />
+              As a simple approach, we could just create distinct subclasses for
+              each semantic concept — i.e. create a subclass of Int for seconds
+              and another subclass for milliseconds — so that the types are not
+              equivalient. However:
+              <ul>
+                <li>
+                  this isn’t always possible (e.g. in Swift, you can’t subclass
+                  String or Int or UUID). And
+                </li>
+                <li>
+                  if we follow this approach dogmatically, we’ll quickly pollute
+                  the global namespace with all these types.
+                </li>
+              </ul>
+            </aside>
+          </section>
 
-          <aside class="notes">
-            Here's another example where changing the naming is maybe not such an elegant solution. The delay function accepts a delay time which is <b>assumed</b> to be in seconds, but nothing prevents us from passing a value that represents milliseconds.
-            <br/>
-            Another way to think of this problem is that the differentiation between seconds and milliseconds only exists in the semantic level. By reading the words in the functions, we will hopefully see that the method is meant to deal with seconds, and that the constant is meant to be used as milliseconds. If we want to make this more robust, we could elevate the differentiation to the type level.
-            <br/>
-            As a simple approach, we could just create distinct subclasses for each semantic concept — i.e. create a subclass of Int for seconds and another subclass for milliseconds — so that the types are not equivalient. However:
-            <ul>
-              <li>this isn’t always possible (e.g. in Swift, you can’t subclass String or Int or UUID). And</li>
-              <li>if we follow this approach dogmatically, we’ll quickly pollute the global namespace with all these types.</li>
-            </ul>
-          </aside>
-        </section>
-
-        <section data-auto-animate>
-          <pre data-id="code-tagged-3"><code class="hljs swift" data-line-numbers>struct Tagged&lt;Tag, RawValue> {
+          <section data-auto-animate>
+            <pre
+              data-id="code-tagged-3"
+            ><code class="hljs swift" data-line-numbers>struct Tagged&lt;Tag, RawValue> {
   var rawValue: RawValue
 }
           </code></pre>
-<a href="https://github.com/pointfreeco/swift-tagged">github.com/pointfreeco/swift-tagged</a>
-          <aside class="notes">
-            We can refine the idea but introducing a new helper struct that lets us "tag" simple types as being specific to other types.
-          </aside>
-        </section>
+            <a href="https://github.com/pointfreeco/swift-tagged"
+              >github.com/pointfreeco/swift-tagged</a
+            >
+            <aside class="notes">
+              We can refine the idea but introducing a new helper struct that
+              lets us "tag" simple types as being specific to other types.
+            </aside>
+          </section>
 
-        <section data-auto-animate>
-          <pre data-id="code-tagged-3"><code class="hljs swift" data-line-numbers="12|6,7|16|18,19">struct Tagged&lt;Tag, RawValue> {
+          <section data-auto-animate>
+            <pre
+              data-id="code-tagged-3"
+            ><code class="hljs swift" data-line-numbers="12|6,7|16|18,19">struct Tagged&lt;Tag, RawValue> {
   var rawValue: RawValue
 }
 
@@ -616,20 +685,32 @@ func remove(id: User.ID) { ... }
 remove(id: user.id) // ✅ Valid
 //remove(id: post.id) // ✅ Doesn't compile
           </code></pre>
+            <aside class="notes">
+              Here is how we use it. Instead of using a raw string as an ID, we
+              use a string that was tagged to the user or post type. From a type
+              system point of view, this means ID has a unique type that is not
+              interchangeable with normal strings or with other tagged types.
+              <br />
+              For ease of use we can define a little alias for the type.
+              <br />
+              Then at the function, we just accept this special type instead of
+              a general string. This gives us type-safety, in that you can't
+              call this function with the wrong kind of ID, and also in terms of
+              just reading the code, this makes it very clear what this function
+              expects.
+              <br />
+              Then lastly at the call site, we're allowed to call the function
+              with a valid user ID, but if we try to pass a post ID, it simply
+              won't compile because the type doesn't match. We get compile-level
+              checking that our code is correct, and a bug that was previously
+              possible is now unrepresentable.
+            </aside>
+          </section>
 
-          <aside class="notes">
-            Here is how we use it. Instead of using a raw string as an ID, we use a string that was tagged to the user or post type. From a type system point of view, this means ID has a unique type that is not interchangeable with normal strings or with other tagged types.
-            <br/>
-            For ease of use we can define a little alias for the type.
-            <br/>
-            Then at the function, we just accept this special type instead of a general string. This gives us type-safety, in that you can't call this function with the wrong kind of ID, and also in terms of just reading the code, this makes it very clear what this function expects.
-            <br/>
-            Then lastly at the call site, we're allowed to call the function with a valid user ID, but if we try to pass a post ID, it simply won't compile because the type doesn't match. We get compile-level checking that our code is correct, and a bug that was previously possible is now unrepresentable.
-          </aside>
-        </section>
-
-        <section>
-          <pre data-id="code-tagged-3"><code class="hljs swift" data-line-numbers="1-5|7-9|11-13|17-19">enum SecondsTag {}
+          <section>
+            <pre
+              data-id="code-tagged-3"
+            ><code class="hljs swift" data-line-numbers="1-5|7-9|11-13|17-19">enum SecondsTag {}
 typealias Seconds = Tagged&lt;SecondsTag, Double>
 
 enum MillisecondsTag {}
@@ -650,63 +731,177 @@ func testDelay() {
   // ✅ Doesn't compile at all!
 }
           </code></pre>
-          <aside class="notes">
-            Let's wrap it up by looking at the seconds/milliseconds problem. A type can be tagged to a specific type, such as a model like in the previous example, or it can be tagged to a lightweight representational type.
-            <br/>
-            Here, we defined empty enums (which is idiomatic in Swift) tags for seconds and milliseconds, and then made typealiases for Double values tagged to those types. Note that both Seconds and Milliseconds wrap Double, but they're not interchangeable!
-            <br/>
-            We change the delay function to explicitly only accept our tagged type for Seconds, and we change the Int extension so that our standard delay time constant returns a tagged type for milliseconds.
-            <br/>
-            And now of course, when we try to call the delay function with milliseconds, it is not just a logic error but also a compile error.
-          </aside>
+            <aside class="notes">
+              Let's wrap it up by looking at the seconds/milliseconds problem. A
+              type can be tagged to a specific type, such as a model like in the
+              previous example, or it can be tagged to a lightweight
+              representational type.
+              <br />
+              Here, we defined empty enums (which is idiomatic in Swift) tags
+              for seconds and milliseconds, and then made typealiases for Double
+              values tagged to those types. Note that both Seconds and
+              Milliseconds wrap Double, but they're not interchangeable!
+              <br />
+              We change the delay function to explicitly only accept our tagged
+              type for Seconds, and we change the Int extension so that our
+              standard delay time constant returns a tagged type for
+              milliseconds.
+              <br />
+              And now of course, when we try to call the delay function with
+              milliseconds, it is not just a logic error but also a compile
+              error.
+            </aside>
+          </section>
         </section>
-      </section>
+
+        <!-- ... NonEmpty -->
+
+        <section>
+          <section>
+            <h3>c. NonEmpty</h3>
+
+            <aside class="notes">
+              Another day, another kind of invalid state.
+            </aside>
+          </section>
+
+          <section data-auto-animate>
+            <pre
+              data-id="nonneg-1"
+            ><code class="jshl swift" data-line-numbers>func increment(in array: [Int], at index: Int) {
+  array[index] = array[index] + 1
+}</code></pre>
+            <aside class="notes">
+              How can we get this function in an invalid state?
+            </aside>
+          </section>
+
+          <section data-auto-animate>
+            <pre
+              data-id="nonneg-1"
+            ><code class="jshl swift" data-line-numbers>func increment(in array: [Int], at index: Int) {
+  array[index] = array[index] + 1
+}
+
+increment(in: [1, 2, 3], at: -1)
+          </code></pre>
+            <aside class="notes">
+              Right, whenever we pass an index somewhere, we implicitly expect
+              that index to be non-zero.
+              <br />
+              Lots of languages provide special types for list indices, so that
+              would be the best for precisely describing our intent.
+              Alternatively, we could use an unsigned int type to signify that
+              the value can’t be negative:
+            </aside>
+          </section>
+
+          <section data-auto-animate>
+            <pre
+              data-id="nonneg-1"
+            ><code class="jshl swift" data-line-numbers="1|5,6">func increment(in array: [Int], at index: UInt) {
+  array[index] = array[index] + 1
+}
+
+increment(in: [1, 2, 3], at: -1)
+// ✅ Compile error: Expected value of type UInt</code></pre>
+            <aside class="notes">
+              Nice and easy. Moving on to something more interesting...
+            </aside>
+          </section>
+
+          <section>
+            <pre
+              data-id="nonempty-1"
+            ><code class="hljs swift" data-line-numbers>func average(of list: [Double]) -> Double {
+  list.reduce(0, +) / list.count
+}
+          </code></pre>
+            <aside class="notes">
+              How can we break this function?
+              <br />
+              Hint - what happens if we call it with an empty list?
+              <br />
+              The average value of an empty list is undefined, so maybe we can
+              make it unrepresentable. Let's define a NonEmptyList. This will be
+              almost like a normal list, but it can never be empty! How do we do
+              that? What property does a non-empty list have?
+            </aside>
+          </section>
+
+          <section>
+            <pre
+              data-id="nonempty-1"
+            ><code class="hljs swift" data-line-numbers>struct NonEmptyList&lt;T> {
+  let head: T
+  let tail: [T]
+}
+          </code></pre>
+            <a href="https://github.com/pointfreeco/swift-nonempty"
+              >github.com/pointfreeco/swift-nonempty</a
+            >
+            <aside class="notes">
+              A non-empty list will always have at least one element - a head,
+              or first, if you will. It could look like this...
+              <br />
+              And then we can conform it to all the relevant interfaces or
+              protocols to make it behave more like a real list, or (my
+              suggestion) we could just import an existing library that declares
+              all this for us.
+            </aside>
+          </section>
+
+          <section>
+            <pre
+              data-id="nonempty-1"
+            ><code class="hljs swift" data-line-numbers="1|5">func average(of list: NonEmpty&lt;Double>) -> Double {
+  list.reduce(0, +) / list.count
+}
+
+average(of: NonEmpty(head: 1, tail: [2, 3, 4]))
+          </code></pre>
+            <aside class="notes">
+              Putting this to use looks like this. We changed our function to
+              expect a non-empty. We'll assume all the hard work has been done
+              so that we don't have to change the function body. Then at the
+              callsite, there is no way to pass an empty list - we have to
+              instantiate an instance of a NonEmpty, which means we have to give
+              it a head element. Cool, huh?
+            </aside>
+          </section>
+        </section>
+
+        <!-- ... Closed sets -->
+
+        <section>
+          <section>
+            <h3>d. Closed sets, discriminated unions</h3>
+            <aside class="notes">
+              Now for the last way, we're going to look at invalid states caused
+              by accepting too wide a range of inputs, and how we can tighten
+              our expectations with closed sets and discriminated unions.
+            </aside>
+          </section>
+
+          <section>asdf</section>
+        </section>
+      </div>
     </div>
-  </div>
 
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <script src="dist/reveal.js"></script>
-  <script src="plugin/notes/notes.js"></script>
-  <script src="plugin/markdown/markdown.js"></script>
-  <script src="plugin/highlight/highlight.js"></script>
-  <script>
-    // More info about initialization & config:
-    // - https://revealjs.com/initialization/
-    // - https://revealjs.com/config/
-    Reveal.initialize({
-      hash: true,
-
-      // Learn about plugins: https://revealjs.com/plugins/
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
-    });
-  </script>
-</body>
-
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
