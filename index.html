@@ -20,12 +20,14 @@
   <body>
     <div class="reveal">
       <div class="slides">
+        
         <!-- INTRO -->
 
         <section>
           <section>
             <h1>Saying what you mean</h1>
             <p>How precise language eliminates bugs</p>
+            <pre><code src="test.swift"></code></pre>
             <aside class="notes">
               In South Africa, we dont say “hello”, we say “haazit boet”, and I
               think it’s beautiful. This talk is called saying what you mean,
@@ -301,12 +303,12 @@
           <h2>3. A concept in programming</h2>
           <p>Making invalid state unrepresentable</p>
 
-          <ol type="a" class="fragment">
-            <li>Maybe, Optional, Nullable</li>
-            <li>Tagged types</li>
-            <li>NonEmpty</li>
-            <li>Closed sets, discriminated unions</li>
-          </ol>
+          <p class="fragment">
+            a. Tagged types<br />
+            b. NonEmpty<br />
+            c. Closed sets, discriminated unions<br />
+          </p>
+
           <aside class="notes">
             Ok, so far this stuff has been a bit airy-fairy-soft-sciency, and
             this talk pretty much amounts to "write clean code". So let's make
@@ -330,192 +332,11 @@
           </aside>
         </section>
 
-        <!-- ... Maybe, Optional, Nullable -->
-
-        <section>
-          <section data-auto-animate>
-            <h3>a. Maybe, Optional, Nullable</h3>
-            <pre
-              data-id="code-1"
-              class="fragment"
-            ><code class="hljs java" data-trim data-line-numbers>public class MyClass {
-              &nbsp;static String getValue() {
-              &nbsp;&nbsp;return "Hello world!";
-              &nbsp;}
-
-              &nbsp;public static void main(String args[]) {
-              &nbsp;&nbsp;String value = getValue();
-              &nbsp;&nbsp;System.out.println(value.toUpperCase());
-              &nbsp;&nbsp;// Hello world!
-              &nbsp;}
-              }
-            </code></pre>
-
-            <aside class="notes">
-              Ok, so we mentioned “invalid state”. What kind of invalid state
-              are we talking about? Let's look at a simple example, especially
-              if you've ever worked in Java or C++. Here's some innocent Java
-              code...
-            </aside>
-          </section>
-
-          <section data-auto-animate>
-            <pre
-              data-id="code-1"
-            ><code class="hljs java" data-trim data-line-numbers="3,9">public class MyClass {
-              &nbsp;static String getValue() {
-              &nbsp;&nbsp;return null;
-              &nbsp;}
-
-              &nbsp;public static void main(String args[]) {
-              &nbsp;&nbsp;String value = getValue();
-              &nbsp;&nbsp;System.out.println(value.toUpperCase());
-              &nbsp;&nbsp;// Exception in thread "main" java.lang.NullPointerException
-              &nbsp;}
-              }
-            </code></pre>
-            <aside class="notes">
-              If we just change the content of our function to return null, we
-              get this error that might give you some mild PTSD:
-              “NullPointerException”. The interesting thing here is that, from a
-              syntax point of view, Java says it's totally allowed and correct
-              to return null from a function that says on the tin it will return
-              a string.
-              <br />
-              One way to look at the problem is that, in languages like Java and
-              C++ and even Go (sorry Go fanboys), for many types, a value can
-              either be present or it can be null. A lot of the time, we don’t
-              actually want those values to be null when we use them. I mean
-              this in the sense that we don’t usually assign a special, valid
-              meaning to the case where a value is null. Null is often simply an
-              invalid state. Yes, you write your checks for it, so if your
-              program is relatively well-written, you shouldn’t see runtime
-              exceptions. But let's look beyond the semantic level: Can we make
-              that invalid state unrepresentable at the type level instead, so
-              that writing a check doesn’t for null even make sense?
-              <br />
-              We can! But not necessarily in Java. I said this was an easy
-              example, not a good one.
-            </aside>
-          </section>
-
-          <section data-auto-animate>
-            <h3>The Maybe monad</h3>
-            <p>
-              (Understanding monads:
-              <a href="https://www.youtube.com/watch?v=C2w45qRc3aU">
-                https://youtu.be/C2w45qRc3aU</a
-              >)
-            </p>
-            <aside class="notes">
-              Many modern languages provide some version of the Maybe monad. I’m
-              not going to try and explain what a monad is (but it’s actually
-              not so complicated, and here is a link to video that explains is
-              very well). We’ll just talk about “maybe”.
-            </aside>
-          </section>
-
-          <section data-auto-animate>
-            <pre
-              data-id="code-2"
-            ><code class="hljs swift" data-line-numbers="1-5|7-12|14-15">
-              enum Maybe&lt;T> {
-              &nbsp;case some(T)
-              &nbsp;case none
-              }
-
-              func foo(value: Maybe&lt;String>) {
-              &nbsp;switch value {
-              &nbsp;case .some(let someValue): print(someValue.uppercased)
-              &nbsp;case .none: print("nil")
-              &nbsp;}
-              }
-
-              foo(value: .some("hello world"))
-              foo(value: .none)
-            </code></pre>
-            <aside class="notes">
-              Maybe is a special wrapper type for other types. When a value, for
-              example an int, is wrapped in a Maybe, an instance of that Maybe
-              can either be an instance of that value (an int) or it can be
-              null.
-              <br />
-              Here, we see how a Maybe might be implemented in a language like
-              Swift. It's a simple "either" wrapper type — an instance of a
-              maybe will either contain a wrapped value of T, or it will contain
-              nothing, or none.
-              <br />
-              Using it, if a function considers null to be a valid case, it can
-              accept an instance of a Maybe as an argument. It can then switch
-              over the received value to either unwrap the wrapped value, if it
-              exists, or handle null.
-              <br />
-              We can call this function with either a wrapped value, or with
-              null.
-            </aside>
-          </section>
-
-          <section data-auto-animate>
-            <pre
-              data-id="code-2"
-            ><code class="hljs swift" data-line-numbers="7|8-10|13-15">
-              enum Maybe&lt;T> {
-              &nbsp;case some(T)
-              &nbsp;case none
-              }
-
-              func foo(value: String) {
-              &nbsp;// No null-handling needed;
-              &nbsp;// value is guaranteed to exist
-              &nbsp;print(someValue.uppercased)
-              }
-
-              foo(value: "hello world")
-              // foo(value: .none) ⬅︎ not even valid Swift syntax
-            </code></pre>
-            <aside class="notes">
-              Now, let's change our function to accept a normal Int, so no
-              longer a maybe.
-              <br />
-              In the body of the function, we no longer need to handle the null
-              case. Since the argument is not a maybe, we are guaranteed by the
-              type system and the compiler that the value will not be null!
-              <br />
-              At the callsite, we can now only call the function with a non-null
-              value. Trying to pass null is simply not valid Swift syntax and it
-              won't compile.
-              <br />
-              So firstly, this means that the invalid state (null) literally
-              cannot be represented - it is invalid code and will throw a
-              compile error. And secondly, when we *do* want null to represent a
-              special case, we have to make it explicit, meaning that other
-              developers reading the code can see that something can be
-              intentionally made null.
-            </aside>
-          </section>
-
-          <section>
-            <ul>
-              <li>Swift: Optional (let x: Int? = 2)</li>
-              <li>Kotlin: Nullable (val x: Int? = 2)</li>
-              <li>Dart: Nullable (int? x = 2)</li>
-              <li>C#: Nullable (int? x = 2)</li>
-              <li>Rust: Option (let x: Option&lt;u32> = Some(2))</li>
-            </ul>
-            <aside class="notes">
-              This functionality is actually built into Swift, and maybe types
-              are called "optional". Other major languages that support this
-              concept are Kotlin, Dart, C#, Rust, and probably most functional
-              languages.
-            </aside>
-          </section>
-        </section>
-
         <!-- ... Tagged types -->
 
         <section>
           <section>
-            <h3>b. Tagged types</h3>
+            <h3>a. Tagged types</h3>
             <aside class="notes">
               Let's look at another kind of invalid state, and how we can make
               it unrepresentable by using something called "tagged types".
@@ -733,7 +554,7 @@ extension Milliseconds {
 
         <section>
           <section>
-            <h3>c. NonEmpty</h3>
+            <h3>b. NonEmpty</h3>
 
             <aside class="notes">
               Another day, another kind of invalid state.
@@ -850,7 +671,7 @@ average(of: NonEmpty(head: 1, tail: [2, 3, 4]))
 
         <section>
           <section>
-            <h3>d. Closed sets, discriminated unions</h3>
+            <h3>c. Closed sets, discriminated unions</h3>
             <aside class="notes">
               Now for the last way, we're going to look at invalid states caused
               by accepting too wide a range of inputs, and how we can tighten
@@ -892,14 +713,14 @@ average(of: NonEmpty(head: 1, tail: [2, 3, 4]))
             <pre
               data-id="sets-1"
             ><code class="jshl swift" data-line-numbers="1-7|11,12|15">enum Weekday {
-              case monday, tuesday, wednesday, // etc...
-            }
+  case monday, tuesday, wednesday, // etc...
+}
 
-            enum Month {
-              case january, february, march, // etc...
-            }
+enum Month {
+  case january, february, march, // etc...
+}
 
-              struct MyDate {
+struct MyDate {
   let day: Int
   let weekday: Weekday
   let month: Month
@@ -921,11 +742,10 @@ MyDate(day: 1, weekday: .monday, month: .march)
 
           <section>
             <p>"And" types / Products</p>
-            <pre><code>
-            class C {
-            let x: Int
-            let y: String
-            }
+            <pre><code>class C {
+  let x: Int
+  let y: String
+}
             </code></pre>
 
             <aside class="notes">
@@ -943,14 +763,13 @@ MyDate(day: 1, weekday: .monday, month: .march)
 
           <section>
             <p>"Or" types / Sums</p>
-            <pre><code>
-              enum E {
-              case x(Int)
-              case y(String)
-              }
+            <pre><code>enum E {
+  case x(Int)
+  case y(String)
+}
 
-              let eg1 = E.x(2)
-              let eg2 = E.y("Hello")
+let eg1 = E.x(2)
+let eg2 = E.y("Hello")
             </code></pre>
             <aside class="notes">
               In algebraic type theory, you also get "or" types. They are not
@@ -967,18 +786,18 @@ MyDate(day: 1, weekday: .monday, month: .march)
           <section data-auto-animate>
             <p>Use the correct operand</p>
             <pre data-id="sets-result"><code>struct Result {
-              let success: String?
-              let failure: Error?
-            }
+  let success: String?
+  let failure: Error?
+}
 
-              func request() -> Result {
-              // We can do any of these:
-              return Result(success: "Hi", failure: nil)
-              return Result(success: nil, failure: .badRequest)
-              // But also these
-              return Result(success: "Hi", failure: .badRequest)
-              return Result(success: nil, failure: nil)
-              }
+func request() -> Result {
+  // We can do any of these:
+  return Result(success: "Hi", failure: nil)
+  return Result(success: nil, failure: .badRequest)
+  // But also these
+  return Result(success: "Hi", failure: .badRequest)
+  return Result(success: nil, failure: nil)
+}
             </code></pre>
             <aside class="notes">
               Now that we have the terminology for two different type operands,
@@ -1003,15 +822,15 @@ MyDate(day: 1, weekday: .monday, month: .march)
           <section data-auto-animate>
             <p>Use the correct operand</p>
             <pre data-id="sets-result"><code>enum Result {
-              case success(String)
-              case failure(Error)
-            }
+  case success(String)
+  case failure(Error)
+}
 
-              func request() -> Result {
-            // Now, we can only do these:
-          return .success("Hi")
-        return .failure(.badRequest)
-              }
+func request() -> Result {
+  // Now, we can only do these:
+  return .success("Hi")
+  return .failure(.badRequest)
+}
             </code></pre>
             <aside class="notes">
               We changed it to an enum, which is an "or" or "sum" type. Now, our
@@ -1055,10 +874,6 @@ MyDate(day: 1, weekday: .monday, month: .march)
             <li>Language is linked to understanding (?)</li>
             <li>In code, it matters how we say it</li>
             <li>Fix bugs preemptively by making them unrepresentable</li>
-            <li>
-              "Maybe" structures make it explicit when things can and cannot be
-              null
-            </li>
             <li>
               Non-interchangebility of concepts can be enforced at the type
               level
