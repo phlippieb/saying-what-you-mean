@@ -20,12 +20,14 @@
   <body>
     <div class="reveal">
       <div class="slides">
+        
         <!-- INTRO -->
 
         <section>
           <section>
             <h1>Saying what you mean</h1>
             <p>How precise language eliminates bugs</p>
+            <pre><code src="test.swift"></code></pre>
             <aside class="notes">
               In South Africa, we dont say “hello”, we say “haazit boet”, and I
               think it’s beautiful. This talk is called saying what you mean,
@@ -716,14 +718,14 @@ average(of: NonEmpty(head: 1, tail: [2, 3, 4]))
             <pre
               data-id="sets-1"
             ><code class="jshl swift" data-line-numbers="1-7|11,12|15">enum Weekday {
-              case monday, tuesday, wednesday, // etc...
-            }
+  case monday, tuesday, wednesday, // etc...
+}
 
-            enum Month {
-              case january, february, march, // etc...
-            }
+enum Month {
+  case january, february, march, // etc...
+}
 
-              struct MyDate {
+struct MyDate {
   let day: Int
   let weekday: Weekday
   let month: Month
@@ -745,11 +747,10 @@ MyDate(day: 1, weekday: .monday, month: .march)
 
           <section>
             <p>"And" types / Products</p>
-            <pre><code>
-            class C {
-            let x: Int
-            let y: String
-            }
+            <pre><code>class C {
+  let x: Int
+  let y: String
+}
             </code></pre>
 
             <aside class="notes">
@@ -767,14 +768,13 @@ MyDate(day: 1, weekday: .monday, month: .march)
 
           <section>
             <p>"Or" types / Sums</p>
-            <pre><code>
-              enum E {
-              case x(Int)
-              case y(String)
-              }
+            <pre><code>enum E {
+  case x(Int)
+  case y(String)
+}
 
-              let eg1 = E.x(2)
-              let eg2 = E.y("Hello")
+let eg1 = E.x(2)
+let eg2 = E.y("Hello")
             </code></pre>
             <aside class="notes">
               In algebraic type theory, you also get "or" types. They are not
@@ -791,18 +791,18 @@ MyDate(day: 1, weekday: .monday, month: .march)
           <section data-auto-animate>
             <p>Use the correct operand</p>
             <pre data-id="sets-result"><code>struct Result {
-              let success: String?
-              let failure: Error?
-            }
+  let success: String?
+  let failure: Error?
+}
 
-              func request() -> Result {
-              // We can do any of these:
-              return Result(success: "Hi", failure: nil)
-              return Result(success: nil, failure: .badRequest)
-              // But also these
-              return Result(success: "Hi", failure: .badRequest)
-              return Result(success: nil, failure: nil)
-              }
+func request() -> Result {
+  // We can do any of these:
+  return Result(success: "Hi", failure: nil)
+  return Result(success: nil, failure: .badRequest)
+  // But also these
+  return Result(success: "Hi", failure: .badRequest)
+  return Result(success: nil, failure: nil)
+}
             </code></pre>
             <aside class="notes">
               Now that we have the terminology for two different type operands,
@@ -827,15 +827,15 @@ MyDate(day: 1, weekday: .monday, month: .march)
           <section data-auto-animate>
             <p>Use the correct operand</p>
             <pre data-id="sets-result"><code>enum Result {
-              case success(String)
-              case failure(Error)
-            }
+  case success(String)
+  case failure(Error)
+}
 
-              func request() -> Result {
-            // Now, we can only do these:
-          return .success("Hi")
-        return .failure(.badRequest)
-              }
+func request() -> Result {
+  // Now, we can only do these:
+  return .success("Hi")
+  return .failure(.badRequest)
+}
             </code></pre>
             <aside class="notes">
               We changed it to an enum, which is an "or" or "sum" type. Now, our
