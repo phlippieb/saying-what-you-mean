@@ -29,35 +29,30 @@
             <p>How precise language eliminates bugs</p>
             <aside class="notes">
               In South Africa, we dont say “hello”, we say “haazit boet”, and I
-              think it’s beautiful. This talk is called saying what you mean,
-              and I hope that by the end of it, you will think about language in
+              think that’s beautiful. This talk is called saying what you mean,
+              and my hope is that by the end of it, you will think about language in
               a new way, and that you will see programming as an extension of
               that, and that you will have learned a few techniques that allow
-              you to manipulate how you express yourself in code to write better
+              you to manipulate how you express ideas in code to write better
               software.
             </aside>
           </section>
 
           <section>
             <h2>These slides</h2>
-            <p>Made with <a href="https://revealjs.com/">reveal js</a></p>
             <p>
               View at
               <a href="https://phlippieb.github.io/saying-what-you-mean"
                 >phlippieb.github.io/saying-what-you-mean</a
               >
             </p>
-            <p>
-              Source at
-              <a href="https://github.com/phlippieb/saying-what-you-mean"
-                >github.com/phlippieb/saying-what-you-mean</a
-              >
-            </p>
+            <p>Made with <a href="https://revealjs.com/">reveal js</a></p>
             <aside class="notes">
-              I used to be an assistant lecturer and students’ first question
+              I used to be an assistant lecturer and whenever I presented something, students’ first question
               was always “can we get the slides” so let’s get that out of the
-              way first. For the curious, these slides were made in reveal.js.
-              You can view them at this URL, and the source is on github.
+              way first. You can view them at this URL on your screen, so maybe take a screenshot or a photo.
+              <br>
+              For the curious, these slides were made in reveal.js.
             </aside>
           </section>
 
@@ -75,11 +70,13 @@
             </p>
             <aside class="notes">
               My name is Phlippie. That is my real name. I will not elaborate
-              any further. For money, I work as a mobile developer at a cosy
+              any further. 
+              <br>
+              For money, I work as a mobile developer at a cosy
               little software consultancy called Retro Rabbit. I have some stuff
-              on Git Hub, and I blog sometimes and put it on bearblog, which is
-              a super lightweight blogging platform built by a South African dev
-              called Herman Martinus; check it out!
+              on The Git Hub, and I blog sometimes and put it on bearblog, which is
+              a lightweight blogging platform built by a South African dev
+              called Herman Martinus.
             </aside>
           </section>
 
@@ -111,11 +108,12 @@
             </p>
             <aside class="notes">
               It’s pretty interesting that, as software people, our main tool
-              for doing our jobs is <i>language</i>. I mean yes, we use
-              programming languages, but they are languages nonetheless. So
+              for doing our jobs is <i>language</i>. I mean yes, 
+              <i>programming</i> languages, but languages nonetheless. So
               let’s talk about language for a bit.
               <br />
-              Any fans in the audience of Denis Villeneuve's sci-fi movie
+              (Press down)
+              I'm guessing there are at least a few fans in the audience of Denis Villeneuve's sci-fi movie
               Arrival? Without spoiling anything, the movie goes into a concept
               called "linguistic relativity", and even mentions by name Sapir
               and Whorf, the two researchers to whom the idea is often
@@ -123,7 +121,7 @@
               speak and understand to some degree determines or influences your
               thoughts and your worldview. It's quite an intuitive idea if you
               think about it, and there are lots of interesting real-world
-              examples that seem to support it.
+              examples that seem to support it. For example...
             </aside>
           </section>
 
@@ -160,20 +158,21 @@
                   community-oriented culture.
                 </li>
                 <li>
-                  Guugu Yimithirr (language in North Queensland, Australia)
+                  A language called Guugu Yimithirr, spoken in North Queensland, Australia,
                   doesn't have relative directions (like left, right), only
                   absolute directions (like north, south). Speakers of these
                   languages tend to always know where north is, even when
-                  they're inside. This is not a skill most others have!
+                  they're inside a building. This is not a skill most people have!
                 </li>
                 <li>
                   Researchers designed an experiment where speakers of English,
                   Japanese and Spanish watched videos of people breaking things,
-                  either by accident or on purpose. Unlike English, Japanese and
+                  either by accident or on purpose.Afterwards, they were asked
+                  to recall who broke what. Now unlike English, Japanese and
                   Spanish doesn't use agentive language for accidents - instead
-                  of saying "john broke the vase", they will say "the vase
-                  broke". After watching the videos, speakers of these languages
-                  were equally likely to remember who broke something
+                  of saying "john broke the vase", they will say "the vase was
+                  broken". After watching the videos, speakers of these languages
+                  were still equally likely to remember who broke something
                   <i>on purpose</i>, but less likely to remember who broke
                   something <i>accidentally</i>.
                 </li>
@@ -199,21 +198,24 @@
                 <li>
                   In English, time is "stuff" (two days, three hours). We think
                   of it as something that can be saved, wasted, lost, spent. In
-                  Hopi (Native American language) it is seen as a cycle. Can you
+                  other languages, such as Hopi (Native American language) it is seen as a cycle. Can you
                   imagine how this might change your outlook?
                 </li>
                 <li>
-                  Even the colour-ignorant among us tend to think of pink as its
+                  Then, talking about colour:
+                  Even the colour-ignorant among us (that's me) tend to think of pink as its
                   own colour, distinct from red. Is it because it has a
                   different name? Russian has different names for darker and
-                  lighter shades of blue.
+                  lighter shades of blue; do russians think of those as distinct colours?
                 </li>
                 <li>
-                  The idea is also central to the fictional language "Newspeak"
-                  imposed by the totalitarian government in George Orwell's
-                  novel 1984. The idea is that, by making the populace speak a
+                  The idea also features in George Orwell's novel 1984, 
+                  where a totalitarian government invents a language called 
+                  "newspeak" and forces its populace to use it.
+                  The idea is that, by making the populace speak a
                   language without words for rebellion and uprising, they won't
-                  be able to think about those concepts.
+                  be able to think about those concepts, and they won't be able
+                  to rebel.
                 </li>
               </ul>
             </aside>
@@ -240,7 +242,7 @@
             Disclaimer: Linguistic determinism probably not real
             <aside class="notes">
               Please note that the strong version of the Sapir Whorf hypothesis,
-              aka linguistic determinish, which is that language
+              aka linguistic determinatuion, which is that language
               <b>determines</b> thoughts, is pretty much universally rejected by
               linguists; not having a word for something does not restrict us
               from thinking about it. As an example, have you ever said "I can't
@@ -292,7 +294,7 @@
             when they read it. We've talked about the link between language and
             mind, and I believe that spending the extra effort to find the right
             way to write a piece of code is about figuring out, internally, in
-            your mind, what the code is really trying to say.
+            your own mind, what the code is really trying to say.
           </aside>
         </section>
 
@@ -310,7 +312,8 @@
 
           <aside class="notes">
             Ok, so far this stuff has been a bit airy-fairy-soft-sciency, and
-            this talk pretty much amounts to "write clean code". So let's make
+            this talk pretty much amounts to "write clean code", which isn't exactly a radical message.
+            So let's make
             it more interesting and talk about a specific way in which we can
             use the nuances of language to our advantage. I'd like to tell you
             about a concept called "making invalid state unrepresentable".
@@ -320,13 +323,8 @@
             express something. We can use this to our advantage to make certain
             bad things impossible to write.
             <br />
-            The basic concept is: if it is an error (or a bug) for a program to
-            be in a certain state, then you can program it to make it impossible
-            to even represent that state. That way, the error literally cannot
-            occur.
-            <br />
             This is a little hard to understand in the abstract, so let’s look
-            at some concrete examples. We're going to talk about 4 strategies or
+            at some concrete examples. We're going to talk about 3 strategies or
             concepts:
           </aside>
         </section>
@@ -337,8 +335,9 @@
           <section>
             <h3>a. Tagged types</h3>
             <aside class="notes">
-              Let's look at another kind of invalid state, and how we can make
-              it unrepresentable by using something called "tagged types".
+              So we mentioned "invalid state". What is that? Here's an example
+              of code that can be put into invalid state, that we can fix by
+              using something called "tagged types".
             </aside>
           </section>
 
@@ -361,7 +360,7 @@ func remove(id: String) { ... }
               Here's a code sample. We have two structs that represent entities
               in our domain level for users and posts. And we have this function
               to remove a user that accepts a string representing the user's ID.
-              Can you see how we might put it into an invalid state?
+              Can you see how we might put the function into an invalid state?
             </aside>
           </section>
 
@@ -384,40 +383,40 @@ remove(id: user.id) // ✅ Valid
 remove(id: post.id) // ❌ Valid, but wrong
             </code></pre>
             <aside class="notes">
-              We can call remove with an id for the wrong thing. This is an
-              obvious bug, but it's one that is allowed by the way we wrote the
+              Yep! We can call remove with an id for the wrong thing. This is an
+              obvious bug, but it's one that we allow by the way we wrote the
               code.
               <br />
               Now in this example, we can probably just give the remove function
-              a better name, or better yet, choose a better argument label. But
+              a better name, or a better argument label. But
               let's look a little deeper.
               <br />
               Another way to look at the problem is that we're using the same
-              type, String,to represent the IDs of both users and posts. We're
+              type, String, to represent the IDs of both users and posts. We're
               subconsciously signalling that these IDs are interchangeable;
               after all, any argument that accepts a user ID will also accept a
-              post ID. What can we change?
+              post ID. 
             </aside>
           </section>
 
           <section>
             <pre
               data-id="code-tagged-2"
-            ><code class="hljs swift" data-line-numbers="">func delay(_ work: () -> Void, by seconds: Int) {
+            ><code class="hljs swift" data-line-numbers="">func delay(_ work: () -> Void, by seconds: Double) {
     // ...
 }
 
-extension Int {
-    static let standardDelayTimeInMilliseconds: Int = 1000
+extension Double {
+    static let standardDelayTimeInMilliseconds: Double = 1000
 }
 
 delay({ print("hi") }, by: .standardDelayTimeInMilliseconds)
           </code></pre>
             <aside class="notes">
-              Here's another example where changing the naming is maybe not such
-              an elegant solution. The delay function accepts a delay time which
+              Here's another example.
+              The delay function accepts a delay time of type Double which
               is <b>assumed</b> to be in seconds, but nothing prevents us from
-              passing a value that represents milliseconds.
+              passing a Double value that represents milliseconds.
               <br />
               Another way to think of this problem is that the differentiation
               between seconds and milliseconds only exists in the semantic
@@ -428,19 +427,13 @@ delay({ print("hi") }, by: .standardDelayTimeInMilliseconds)
               level.
               <br />
               As a simple approach, we could just create distinct subclasses for
-              each semantic concept — i.e. create a subclass of Int for seconds
+              each semantic concept — i.e. create a subclass of Double for seconds
               and another subclass for milliseconds — so that the types are not
               equivalient. However:
-              <ul>
-                <li>
-                  this isn’t always possible (e.g. in Swift, you can’t subclass
-                  String or Int or UUID). And
-                </li>
-                <li>
-                  if we follow this approach dogmatically, we’ll quickly pollute
-                  the global namespace with all these types.
-                </li>
-              </ul>
+                this isn’t always possible (e.g. in Swift, you can’t subclass
+                String or Double or UUID) because they're not classes.  And
+                if we follow this approach dogmatically, we’ll quickly pollute
+                the global namespace with all these types.
             </aside>
           </section>
 
@@ -455,8 +448,10 @@ delay({ print("hi") }, by: .standardDelayTimeInMilliseconds)
               >github.com/pointfreeco/swift-tagged</a
             >
             <aside class="notes">
-              We can refine the idea but introducing a new helper struct that
+              We can refine the idea of making special types by  introducing a new helper struct that
               lets us "tag" simple types as being specific to other types.
+              This idea comes from a site called Pointfree, and they have a library that provides this 
+              functionality at the link on the screen.
             </aside>
           </section>
 
@@ -492,15 +487,15 @@ remove(id: user.id) // ✅ Valid
               For ease of use we can define a little alias for the type.
               <br />
               Then at the function, we just accept this special type instead of
-              a general string. This gives us type-safety, in that you can't
+              a raw string. This gives us type-safety, in that you can't
               call this function with the wrong kind of ID, and also in terms of
               just reading the code, this makes it very clear what this function
               expects.
               <br />
               Then lastly at the call site, we're allowed to call the function
               with a valid user ID, but if we try to pass a post ID, it simply
-              won't compile because the type doesn't match. We get compile-level
-              checking that our code is correct, and a bug that was previously
+              won't compile because the type doesn't match. The compiler
+              checks that our code is correct, and a bug that was previously
               possible is now unrepresentable.
             </aside>
           </section>
@@ -527,19 +522,19 @@ extension Milliseconds {
 // ✅ Doesn't compile at all!
           </code></pre>
             <aside class="notes">
-              Let's wrap it up by looking at the seconds/milliseconds problem. A
+              Back to the seconds/milliseconds problem. As we saw, a
               type can be tagged to a specific type, such as a model like in the
               previous example, or it can be tagged to a lightweight
               representational type.
               <br />
-              Here, we defined empty enums (which is idiomatic in Swift) tags
+              Here, we defined empty enums (which is idiomatic in Swift for simple empty types) as tags
               for seconds and milliseconds, and then made typealiases for Double
               values tagged to those types. Note that both Seconds and
               Milliseconds wrap Double, but they're not interchangeable!
               <br />
               We change the delay function to explicitly only accept our tagged
-              type for Seconds, and we change the Int extension so that our
-              standard delay time constant returns a tagged type for
+              type for Seconds, and we change the constant so that our
+              standard delay time returns a tagged type for
               milliseconds.
               <br />
               And now of course, when we try to call the delay function with
@@ -586,7 +581,7 @@ increment(in: [1, 2, 3], at: -1)
               <br />
               Lots of languages provide special types for list indices, so that
               would be the best for precisely describing our intent.
-              Alternatively, we could use an unsigned int type to signify that
+              Alternatively, we could use an unsigned number type to signify that
               the value can’t be negative:
             </aside>
           </section>
@@ -613,12 +608,16 @@ increment(in: [1, 2, 3], at: -1)
 }
           </code></pre>
             <aside class="notes">
+              Here's a function that computes the average of an array of numbers.
               How can we break this function?
               <br />
               Hint - what happens if we call it with an empty list?
               <br />
-              The average value of an empty list is undefined, so maybe we can
-              make it unrepresentable. Let's define a NonEmptyList. This will be
+              The average value of an empty list is undefined, because we'd be dividing by zero.
+              So maybe we can
+              make it unrepresentable to call it with an empty list.
+              Let's try!
+               Let's define a NonEmptyList. This will be
               almost like a normal list, but it can never be empty! How do we do
               that? What property does a non-empty list have?
             </aside>
@@ -641,7 +640,7 @@ increment(in: [1, 2, 3], at: -1)
               <br />
               And then we can conform it to all the relevant interfaces or
               protocols to make it behave more like a real list, or (my
-              suggestion) we could just import an existing library that declares
+              suggestion) we could just import an existing library that does
               all this for us.
             </aside>
           </section>
@@ -661,7 +660,8 @@ average(of: NonEmpty(head: 1, tail: [2, 3, 4]))
               so that we don't have to change the function body. Then at the
               callsite, there is no way to pass an empty list - we have to
               instantiate an instance of a NonEmpty, which means we have to give
-              it a head element. Cool, huh?
+              it a head element. The bug literally doesn't make sense anymore!
+               Cool, huh?
             </aside>
           </section>
         </section>
@@ -672,9 +672,10 @@ average(of: NonEmpty(head: 1, tail: [2, 3, 4]))
           <section>
             <h3>c. Closed sets, discriminated unions</h3>
             <aside class="notes">
-              Now for the last way, we're going to look at invalid states caused
+              Now for the last way to make invalid state unrepresentable,
+               we're going to look at invalid states caused
               by accepting too wide a range of inputs, and how we can tighten
-              our expectations with closed sets and discriminated unions.
+              our definitions with closed sets and discriminated unions.
             </aside>
           </section>
 
@@ -688,20 +689,19 @@ average(of: NonEmpty(head: 1, tail: [2, 3, 4]))
 }
             </code></pre>
             <aside class="notes">
-              Ok here's an easy one. Let's look at all some issues here.
+              Ok here's an easy one. Let's look at this code and point out some issues. 
               <br />
               <ul>
                 <li>
                   First off, just because it says in the comments that 0 =
                   Monday, nothing's stopping us from putting a value of 10 or
-                  100 or 10,000,000 there, right?
+                  100 or 10,000,000 or minus 4 there, just for a laugh.
                 </li>
                 <li>
-                  But moreover, even if we're well-intended, we might
+                  But even if we're well-intentioned, we might
                   accidentally get confused about which day of the week is first
-                  — it might start on a Monday or on a Sunday depending on where
-                  you live or just what you're used to, so people can easily get
-                  this wrong.
+                  — the week might start on a Monday or on a Sunday depending on where
+                  you live or just what you're used to, so this is easy to get wrong.
                 </li>
               </ul>
               This one is pretty easy to fix though, using enums.
@@ -733,7 +733,7 @@ MyDate(day: 1, weekday: .monday, month: .march)
               others, but... we'll leave that problem alone for this talk.
               <br />
               Enums are quite powerful for this type of thing, because they give
-              us the power to define a set of values that only contain exactly
+              us the language to define a set of values that only contain exactly
               the values that we consider to be valid. In terms of algebra,
               they're essentially like closed sets.
             </aside>
@@ -750,13 +750,11 @@ MyDate(day: 1, weekday: .monday, month: .march)
             <aside class="notes">
               Speaking of algebra, here's an interesting concept. Certain types,
               like classes and structs, are "and" types.<br />
-              And instance of this class contains an Int AND a String.
+              In this example, An instance of class C contains an Int AND a String.
               <br />
               In terms of algebraic types, they are products: the total set of
               all values that C can have is every Int multiplied by every
               String.
-              <br />
-              So... what are "or" types?
             </aside>
           </section>
 
@@ -778,7 +776,7 @@ let eg2 = E.y("Hello")
               Unlike structs and classes, an "or" type lets you choose which of
               its members to store in an instance. Here, the total possible
               values that you can represent with enum E is every Int "or" every
-              String. In other words, Int + String.
+              String. In other words, Int + String. They are also called "sum" types.
             </aside>
           </section>
 
@@ -800,20 +798,21 @@ func request() -> Result {
             </code></pre>
             <aside class="notes">
               Now that we have the terminology for two different type operands,
-              name product and sum, we can think about using the correct ones to
-              describe our software. Here's a simple request function that can
+              namely product and sum, we can think about using the correct ones to
+              describe our code. Here's a simple request function that can
               succeed with a String payload, or fail with an error.
               <br />
-              If you don't know Swift, you might not realise but the optional
+              If you don't know Swift, you might not know the ? operator;
+              it makes the value an optional, and the optional
               String and optional Error are both "or" types, or sum types.
-              success can either be a String OR nil. And failure can either be
-              an error OR nil.
+              Success can either be a String OR nil. And failure can either be
+              an error OR nil. So we're off to a good start!
               <br />
               However, the containing type here is a struct, which means it's an
-              "and" or product type. Result can contain not just a non-nil
-              success and a nil failure, or a non-nil failure and a nil success,
-              but also both a success and failure, as well as neither! Some of
-              those just don't make sense, so perhaps result should have been an
+              "and" or product type. Result can contain not just a 
+              success OR a failure,
+              but also a success AND a failure, as well as neither! Some of
+              those combinations just don't make sense, so perhaps result should have been an
               "or" type instead?
             </aside>
           </section>
@@ -832,11 +831,11 @@ func request() -> Result {
 }
             </code></pre>
             <aside class="notes">
-              We changed it to an enum, which is an "or" or "sum" type. Now, our
+              Here we changed it to an enum, which is an "or" or "sum" type. Now, our
               result can only be in one of two states - it can only contain a
               success string, or a failure error, but not both, and not neither.
-              In fact, Swift has a built-in type that is implemented like this,
-              because this is actually correct.
+              In fact, Swift has a built-in type called Result that is implemented a lot like this,
+              because this is actually the correct way to represent this concept in code.
             </aside>
           </section>
 
