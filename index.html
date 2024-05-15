@@ -848,11 +848,11 @@ func request() -> Result {
               <li>F#: discriminated unions</li>
               <li>Haskell: algebraic data types</li>
             </ul>
-          </section>
           <aside class="notes">
             Once you understand it and get used to it, it seems like such a
             fundamental feature that it's quite baffling that it's not
-            universally supported by all languages.
+            universally supported by all languages. It is quite literally
+            like only having a multiplication operator, and no plus symbol.
             <br />
             Here are some languages that I believe support this concept in some
             shape or form. It's much more common in functional languages, as you
@@ -897,6 +897,23 @@ func request() -> Result {
                 This extends to the code we write, and there are many possible
                 nuances in how we code, so we should spare some effort to think
                 about how we're expressing our programs
+              </li>
+              <li>
+                Much like some languages lack the words to express certain concepts,
+                we can design our code so that certain invalid states are unrepresentable.
+              </li>
+              <li>
+                We can use tagged types to make things that are conceptually inequivalent
+                non-interchangeable on the type level
+              </li>
+              <li>
+                There are appropriate types that we can use to prevent us from passing negative 
+                numbers or empty lists where they shouldn't be 
+              </li>
+              <li>
+                We can use enums, and if we're lucky, disciminated unions, which give us
+                more precise language to limit the values that our functions accept to
+                only valid cases. And we learned about plus and product types.
               </li>
             </ul>
           </aside>
